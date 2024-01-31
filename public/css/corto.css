@@ -1,0 +1,228 @@
+/* -----------------tarejtas------------ */
+
+.tarjetero {
+    display: flex;
+    justify-content: center;
+}
+
+.flip-container {
+    background-color: transparent;
+    width: 29vw;
+    height: 40vh;
+    /* border: 1px solid #ccc; */
+    perspective: 1000px;
+}
+
+.card {
+    display: flex;
+    position: relative;
+    width: 29vw;
+    height: 40vh;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.front,
+.back {
+    position: absolute;
+    width: 29vw;
+    height: 40vh;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+}
+
+.flip-container:hover .card {
+    transform: rotateY(180deg);
+}
+
+.front {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #4e4e4d;
+    color: #fff;
+    background-repeat: round;
+    background-size: cover;
+}
+
+.contenedor {
+    display: flex;
+    position: fixed;
+    width: 4vw;
+    height: 40vh;
+    background-color: #fcd031;
+    justify-content: center;
+    text-align: center;
+    margin-left: -500px;
+}
+
+.contenedor p {
+    text-align: center;
+    position: fixed;
+    font-size: 20.5px;
+    transform: rotate(-90deg);
+    bottom: 20vh;
+}
+
+.conte p {
+    width: 400px;
+    text-align: justify;
+    word-break: break-word;
+    line-break: normal;
+}
+
+.back {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #4e4e4d;
+    color: white;
+    transform: rotateY(180deg);
+    font-size: 1rem;
+}
+
+.flip-container {
+    margin: 1em;
+}
+
+.area {
+    width: 20vw;
+    position: fixed;
+    align-items: flex-start;
+    font-size: 2rem;
+    color: #fcd031;
+    justify-content: center;
+    font-family: 'Segoe';
+}
+
+.btnver a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: #fcd031;
+    width: 80px;
+    height: 80px;
+    shape-outside: circle();
+    clip-path: circle();
+    border-style: none;
+    top: 25vh;
+    right: 15px;
+    color: black;
+}
+
+.btnver button {
+    background-color: transparent;
+    border-color: #fcd031;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 740px) and ( orientation: portrait) {
+    .flip-container {
+        background-color: transparent;
+        width: 95vw;
+        height: 35vh;
+        /* border: 1px solid #ccc; */
+        perspective: 1000px;
+    }
+    .card {
+        display: flex;
+        position: relative;
+        width: 95vw;
+        height: 35vh;
+        text-align: center;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+    }
+    .front,
+    .back {
+        position: absolute;
+        width: 95vw;
+        height: 35vh;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+    }
+    .flip-container:hover .card {
+        transform: rotateY(180deg);
+    }
+    .front {
+        display: flex;
+        justify-content: space-evenly;
+        background-color: #4e4e4d;
+        color: #fff;
+        background-repeat: round;
+        background-size: cover;
+    }
+    .contenedor {
+        display: flex;
+        position: fixed;
+        width: 4vw;
+        height: 40vh;
+        background-color: #fcd031;
+        justify-content: center;
+        text-align: center;
+        margin-left: -500px;
+    }
+    .contenedor p {
+        text-align: center;
+        position: fixed;
+        font-size: 20.5px;
+        transform: rotate(-90deg);
+        bottom: 20vh;
+    }
+    .conte p {
+        width: 400px;
+        text-align: justify;
+        word-break: break-word;
+        line-break: normal;
+    }
+    .back {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        background-color: #4e4e4d;
+        color: white;
+        transform: rotateY(180deg);
+        font-size: 1rem;
+    }
+    .flip-container {
+        margin: 1em;
+    }
+    .area {
+        width: 20vw;
+        position: fixed;
+        align-items: flex-start;
+        font-size: 2rem;
+        color: #fcd031;
+        justify-content: center;
+        font-family: 'Segoe';
+    }
+    .btnver a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        background-color: #fcd031;
+        width: 80px;
+        height: 80px;
+        shape-outside: circle();
+        clip-path: circle();
+        border-style: none;
+        top: 25vh;
+        right: 15px;
+        color: black;
+    }
+    .btnver button {
+        background-color: transparent;
+        border-color: #fcd031;
+        border: none;
+        cursor: pointer;
+    }
+}

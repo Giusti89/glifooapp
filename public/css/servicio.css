@@ -1,0 +1,480 @@
+@font-face {
+    font-family: "Segoe";
+    src: url(../fonts/seguiemj.ttf);
+}
+
+@font-face {
+    font-family: "Sifonn";
+    src: url(../fonts/SIFONN_PRO.otf);
+}
+
+.encabezado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.encabezado p {
+    margin: 15px;
+    color: aliceblue;
+    font-family: "Segoe";
+    font-size: 2vw;
+}
+
+.banner {
+    display: flex;
+    width: 100%;
+    background-color: #fcd031;
+    height: 60vh;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10vh;
+}
+
+.redondo img {
+    height: 55vh;
+    width: auto;
+    background-image: url(../img/vistazo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.redondo p {
+    color: black;
+    font-size: 6vw;
+    font-family: "Sifonn";
+}
+
+
+/* ---------TARJETAS---------- */
+
+.tarjetero {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.flip-container {
+    background-color: transparent;
+    width: 600px;
+    height: 40vh;
+    /* border: 1px solid #ccc; */
+    perspective: 1000px;
+}
+
+.card {
+    display: flex;
+    position: relative;
+    width: 600px;
+    height: 40vh;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.front,
+.back {
+    position: absolute;
+    width: 600px;
+    height: 40vh;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+}
+
+.flip-container:hover .card {
+    transform: rotateY(180deg);
+}
+
+.front {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #4e4e4d;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contenedor {
+    display: flex;
+    position: fixed;
+    width: 4vw;
+    height: 40vh;
+    background-color: #fcd031;
+    justify-content: center;
+    text-align: center;
+    margin-left: -500px;
+}
+
+.contenedor p {
+    text-align: center;
+    position: fixed;
+    font-size: 20.5px;
+    transform: rotate(-90deg);
+    bottom: 20vh;
+}
+
+.conte p {
+    width: 400px;
+    text-align: justify;
+    word-break: break-word;
+    line-break: normal;
+}
+
+.back {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #4e4e4d;
+    color: white;
+    transform: rotateY(180deg);
+    font-size: 1rem;
+}
+
+.flip-container {
+    margin: 1em;
+}
+
+.area {
+    width: 20vw;
+    position: fixed;
+    align-items: flex-start;
+    font-size: 2rem;
+    color: #fcd031;
+    justify-content: center;
+    font-family: 'Segoe';
+}
+
+.btnver a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: #fcd031;
+    width: 80px;
+    height: 80px;
+    shape-outside: circle();
+    clip-path: circle();
+    border-style: none;
+    top: 25vh;
+    right: 15px;
+    color: black;
+}
+
+.btnver button {
+    background-color: transparent;
+    border-color: #fcd031;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* ----------------------portafolios--------------- */
+
+.portfolios {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.portafolio {
+    width: 30%;
+}
+
+.portafolio a {
+    height: 10vh;
+    background-color: #fcd031;
+    border-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portafolio button {
+    background-color: transparent;
+    border-color: #fcd031;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1.5em;
+}
+
+.informaciones {
+    width: 70%;
+}
+
+.informaciones a {
+    height: 10vh;
+    display: flex;
+    border-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4e4e4d;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/backgrounds/Curvas.png);
+}
+
+.informaciones button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 1.5em;
+}
+
+@media screen and (max-width: 740px) and ( orientation: portrait) {
+    .encabezado p {
+        margin: 15px;
+        color: aliceblue;
+        font-family: "Segoe";
+        font-size: 5vw;
+    }
+    .banner {
+        display: flex;
+        width: 100%;
+        background-color: #fcd031;
+        height: 60vh;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10vh;
+    }
+    .redondo img {
+        height: 40vh;
+        width: auto;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    /* ---------TARJETAS---------- */
+    .tarjetero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .flip-container {
+        background-color: transparent;
+        width: 95vw;
+        height: 35vh;
+        border: 1px solid #ccc;
+        perspective: 1000px;
+    }
+    .card {
+        display: flex;
+        position: relative;
+        width: 95vw;
+        height: 35vh;
+        text-align: center;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+    }
+    .front,
+    .back {
+        position: absolute;
+        width: 95vw;
+        height: 35vh;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2vw;
+    }
+    .conte {
+        display: flex;
+        width: 80vw;
+        font-size: 3vw;
+    }
+    .contenedor {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: 85%;
+        width: 10vw;
+        height: 35vh;
+        background-color: #fcd031;
+    }
+    .contenedor p {
+        text-align: center;
+        position: fixed;
+        font-size: 4vw;
+        transform: rotate(-90deg);
+        bottom: 15vh;
+    }
+    .area {
+        width: 25vw;
+        position: fixed;
+        align-items: flex-start;
+        font-size: 1.5rem;
+        color: #fcd031;
+        justify-content: center;
+        font-family: 'Segoe';
+    }
+    .btnver a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        background-color: #fcd031;
+        width: 50px;
+        height: 50px;
+        shape-outside: circle();
+        clip-path: circle();
+        border-style: none;
+        top: 26vh;
+        right: 15px;
+        color: black;
+    }
+    .btnver button {
+        background-color: transparent;
+        border-color: #fcd031;
+        border: none;
+        cursor: pointer;
+    }
+    /*------boton portafolios------  */
+    .portfolios {
+        width: 100%;
+        display: flex;
+        margin-bottom: 1vh
+    }
+    .portafolio {
+        width: 30vw;
+    }
+    .portafolio button {
+        background-color: transparent;
+        border-color: #fcd031;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-size: 4vw;
+    }
+    .informaciones {
+        width: 70vw;
+    }
+    .informaciones button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-size: 4vw;
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width: 740px) and ( orientation: landscape) {
+    .tarjetero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .flip-container {
+        background-color: transparent;
+        width: 95vw;
+        height: 95vh;
+        border: 1px solid #ccc;
+        perspective: 1000px;
+    }
+    .card {
+        display: flex;
+        position: relative;
+        width: 95vw;
+        height: 95vh;
+        text-align: center;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+    }
+    .front,
+    .back {
+        position: absolute;
+        width: 95vw;
+        height: 95vh;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1vw;
+    }
+    .conte {
+        display: flex;
+        width: 80vw;
+        font-size: 3vw;
+    }
+    .contenedor {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: 85%;
+        width: 10vw;
+        height: 95vh;
+        background-color: #fcd031;
+    }
+    .contenedor p {
+        text-align: center;
+        position: fixed;
+        font-size: 4vw;
+        transform: rotate(-90deg);
+        bottom: 40vh;
+    }
+    .area {
+        width: 25vw;
+        position: fixed;
+        align-items: flex-start;
+        font-size: 2rem;
+        color: #fcd031;
+        justify-content: center;
+        font-family: 'Segoe';
+    }
+    .btnver a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        background-color: #fcd031;
+        width: 50px;
+        height: 50px;
+        shape-outside: circle();
+        clip-path: circle();
+        border-style: none;
+        top: 26vh;
+        right: 15px;
+        color: black;
+    }
+    .btnver button {
+        background-color: transparent;
+        border-color: #fcd031;
+        border: none;
+        cursor: pointer;
+    }
+    /*------boton portafolios------  */
+    .portfolios {
+        width: 100%;
+        display: flex;
+        margin-bottom: 1vh
+    }
+    .portafolio {
+        width: 30vw;
+        height: 15vh;
+    }
+    .portafolio button {
+        background-color: transparent;
+        border-color: #fcd031;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-size: 4vw;
+    }
+    .informaciones {
+        width: 70vw;
+        height: 15vh;
+    }
+    .informaciones button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-size: 4vw;
+        width: 60vw;
+    }
+}

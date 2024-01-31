@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+.contPrincipal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+.banerPrincipal {
+    margin: 15px;
+    width: 95%;
+}
+
+.banerPrincipal img {
+    width: 100%;
+    height: 606px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.art {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    margin-bottom: 50px;
+}
+
+.descrip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 50%;
+    gap: 14px 15px;
+    background-color: aquamarine;
+    justify-content: space-evenly;
+}
+
+.descrip img {
+    object-fit: cover;
+    width: 17vw;
+    height: 17vw;
+    padding: 1vw;
+    border-radius: 24px;
+    box-shadow: 3px 3px 4.4px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+.redes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    background-color: aqua;
+}
+
+
+/* -------------- */
+
+.empr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background-color: aquamarine;
+}
+
+.empr p {
+    width: 95%;
+    text-align: justify;
+}
+
+.social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: aqua;
+}
+
+.conteBotones {
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: blue;
+}
+
+.boton {
+    margin: 15px;
+    width: 12vw;
+    gap: 5px;
+}
+
+.boton img {
+    width: 12vw;
+    border-radius: 24px;
+}
+
+.rectangulo {
+    margin-top: 50px;
+    width: 100%;
+    height: 100px;
+    background-color: blueviolet;
+}
+
+.repro {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    margin-bottom: 50px;
+}
+
+.repro video {
+    width: 100%;
+    height: auto;
+}

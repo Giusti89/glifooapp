@@ -1,0 +1,169 @@
+@font-face {
+    font-family: 'Sifonn';
+    src: url(../fonts/SIFONN_PRO.otf);
+}
+
+.banerPrincipal {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 550px;
+    background-color: #fcd031;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 70px;
+    background-image: url('../img/backgrounds/Líneas.png');
+}
+
+.banerPrincipal p {
+    font-size: 100px;
+    font-family: 'Sifonn';
+    margin-left: 160px;
+}
+
+.mensaje {
+    display: flex;
+    width: 100%;
+    font-size: 36;
+    justify-content: center;
+    margin-bottom: 90px;
+}
+
+.mensaje p {
+    width: 500px;
+    text-align: justify;
+    color: #fcd031;
+    padding: 15px;
+}
+
+.encabezado {
+    width: 100%;
+    background-color: #26282d;
+}
+
+.encabezado h1 {
+    color: #fcd031;
+    font-size: 45px;
+    padding: 35px;
+}
+
+.formulario {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+.formulario input {
+    width: 700px;
+    padding: 10px;
+    margin: 15px;
+    background-color: #32353d;
+    color: aliceblue;
+    align-items: center;
+}
+
+.formulario textarea {
+    background-color: #32353d;
+    color: aliceblue;
+}
+
+.envio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.formulario textarea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95VW;
+}
+
+#verificacion {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.nome {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formulario label {
+    width: 100%;
+    color: aliceblue;
+}
+
+#check {
+    width: 20px;
+}
+
+#txt_nombre,
+#txt_mail,
+#txt_Asunto,
+#txt_telefono {
+    width: 45%;
+}
+
+.formulario button {
+    margin: 15px;
+    width: 30%;
+    height: 50px;
+    background-color: #fcd031;
+}
+
+.formulario #check {
+    width: 20px;
+}
+
+#boton {
+    display: none;
+}
+
+#check:checked+label+#boton {
+    display: block;
+}
+
+
+/*---------botones contacto -----------------------------*/
+
+.context {
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 150px;
+}
+
+.port {
+    background-color: #26282D;
+    width: 47%;
+    height: 100px;
+    color: #fcd031;
+    font-size: 32px;
+}
+
+.info {
+    background-color: #26282D;
+    width: 47%;
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fcd031;
+    font-size: 32px;
+}
+
+.context img {
+    width: 10%;
+}
+
+.context button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

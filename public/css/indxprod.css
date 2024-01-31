@@ -1,0 +1,220 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Segoe';
+    src: url(../fonts/seguiemj.ttf);
+}
+
+@font-face {
+    font-family: "Sifonn";
+    src: url(../fonts/SIFONN_PRO.otf);
+}
+
+body {
+    background-color: #32353d;
+}
+
+.btnNprod {
+    width: 100%;
+    padding: 15px;
+    margin-left: 30px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 10vh 0;
+}
+
+.ejecutado {
+    color: red;
+    border: solid red 10px;
+    background-color: aliceblue;
+    padding: 15px;
+    width: 30vw;
+    text-align: center;
+}
+
+.titulo {
+    display: flex;
+    width: 100%;
+    color: #FCD031;
+    align-items: center;
+    justify-content: center;
+    margin: 3vh 0 3vh 0;
+    font-size: 4vh;
+}
+
+table {
+    border: 1px solid rgb(200, 200, 200);
+    border-collapse: collapse;
+    font-size: .9rem;
+    width: 100%;
+    margin-top: 5vw;
+}
+
+tr {
+    text-align: center;
+}
+
+tr:nth-child(odd) {
+    background: rgb(225, 225, 225);
+}
+
+th {
+    background: #26282D;
+    border: 1px solid rgb(160, 160, 160);
+    color: rgb(255, 255, 255);
+    padding: .8rem;
+}
+
+td {
+    border: 1px solid rgb(160, 160, 160);
+    padding: .1rem;
+}
+
+table tr:hover {
+    background: rgb(255, 235, 185);
+}
+
+.table-container {
+    margin: 0 0 1rem;
+    overflow: auto;
+    overflow-y: auto;
+    width: 90%;
+}
+
+
+/*  Estilos para que las barras de desplazamiento horizontal se vean en los dispositivos IOS */
+
+.table-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 8px;
+    border: 3px solid #fff;
+}
+
+.filas-tabla {
+    background-color: #595959;
+    color: #fcd031;
+    width: 15vw;
+    height: 15vh;
+}
+
+.btnsub .editar {
+    width: 15vw;
+    font-size: 1.5vw;
+}
+
+.btnsub .close {
+    width: 15vw;
+    font-size: 1.5vw;
+    float: none;
+}
+
+.botones {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3vh;
+    margin: 5vh 0 0 0;
+}
+
+button.editar {
+    color: aliceblue;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #4CAF50;
+    border-radius: 10%;
+    padding: 1vw;
+    width: 20vw;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 2.5vw;
+}
+
+button.editar:hover {
+    background-color: #28bb2d;
+}
+
+button.editar:active {
+    background-color: #02ff0a;
+}
+
+.btnsub .borrar {
+    width: 170px;
+    height: 60px;
+    background: #26282D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.40) inset;
+    border-radius: 48.50px;
+    background-image: url('../img/botones/Botonborrar.svg');
+    background-repeat: no-repeat;
+    overflow: auto;
+    background-repeat: round;
+    overflow: auto;
+}
+
+.borrar:hover {
+    background-color: #fcd031;
+}
+
+.borrar:active {
+    background-color: red;
+}
+
+button.close {
+    color: aliceblue;
+    float: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: rgb(196, 16, 16);
+    border-radius: 10%;
+    padding: 1vw;
+    width: 20vw;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 2.5vw;
+}
+
+button.close:hover {
+    background-color: rgb(214, 35, 35);
+}
+
+button.close:active {
+    background-color: red;
+}
+
+.paginate {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginate p {
+    padding: 1em;
+    color: #FCD031;
+}
+
+.mensajes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    padding: 15px;
+    width: 30vw;
+    text-align: center;
+}

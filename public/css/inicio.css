@@ -1,0 +1,190 @@
+/* ----video------- */
+
+#play {
+    background-image: url(../img/Boton.png);
+    width: 200px;
+    height: 200px;
+    border: 0px;
+    position: absolute;
+    top: -90px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    display: hidden;
+}
+
+#contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cajarep {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+nav {
+    z-index: 5;
+    position: relative;
+    top: -60%;
+}
+
+#play {
+    background-image: url(../img/Boton.webp);
+    width: 200px;
+    height: 200px;
+    border: 0px;
+    position: absolute;
+    left: -650px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    display: none;
+}
+
+#navegador {
+    background-color: #fcd031;
+}
+
+
+/*-* texto dseslizante------------------- */
+
+.textoDeslizante {
+    color: white;
+    font-size: 1.5vw;
+    font-family: "Segoe";
+}
+
+
+/*------mision vision objetivos-----------  */
+
+.contenedorCards {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 5vw;
+}
+
+.flip-container {
+    background-color: transparent;
+    width: 25vw;
+    perspective: 1000px;
+}
+
+.card {
+    display: flex;
+    position: relative;
+    width: 25vw;
+    height: 40vh;
+    text-align: center;
+    justify-content: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.flip-container:hover .card {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    position: absolute;
+    width: 25vw;
+    height: 40vh;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: #fcd031;
+}
+
+.front {
+    display: flex;
+    justify-content: space-evenly;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-color: #32353d;
+}
+
+.back {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    transform: rotateY(180deg);
+    background-color: #fcd031;
+}
+
+.back p {
+    padding: 2vw;
+    text-align: justify;
+    word-break: break-word;
+    line-break: normal;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    font-size: 1.8vh;
+}
+
+.flip-container {
+    margin: 1em;
+}
+
+.area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.area p {
+    font-size: 5vh;
+    color: #fcd031;
+    font-family: "Sifonn";
+}
+
+@media screen and (max-width: 740px) and ( orientation: portrait) {
+    /*-* texto dseslizante------------------- */
+    .textoDeslizante {
+        color: white;
+        font-size: 5vw;
+    }
+    /* -----mision--------- */
+    .contenedorCards {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 5vw;
+    }
+    .flip-container {
+        background-color: transparent;
+        width: 90vw;
+        perspective: 1000px;
+    }
+    .card {
+        display: flex;
+        position: relative;
+        width: 90vw;
+        height: 40vh;
+        text-align: center;
+        justify-content: center;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+    }
+    .flip-container:hover .card {
+        transform: rotateY(180deg);
+    }
+    .front,
+    .back {
+        position: absolute;
+        width: 90vw;
+        height: 40vh;
+        backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-color: #fcd031;
+    }
+}

@@ -1,0 +1,25 @@
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+h2 {
+    color: red;
+    border: solid red 10px;
+    background-color: aliceblue;
+    padding: 15px;
+    width: 30vw;
+    text-align: center;
+}
+
+.conterrores {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px;
+}

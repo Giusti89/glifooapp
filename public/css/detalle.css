@@ -1,0 +1,266 @@
+.principal {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.lienzo {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.cabezera {
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    padding: 3vw;
+    background-color: #595959;
+    margin: 3vh;
+}
+
+.forml {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.selectores {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 5vw;
+    margin-top: 3vh;
+}
+
+.cuer {
+    display: flex;
+    width: 85vw;
+    height: auto;
+    margin-bottom: 5vh;
+}
+
+.formulario .subT {
+    color: #fcd031;
+}
+
+
+/*--------------------------tabla------------------------------*/
+
+table {
+    border: 1px solid rgb(200, 200, 200);
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    width: 100%;
+    margin-top: 5vw;
+}
+
+tr {
+    text-align: center;
+}
+
+tr:nth-child(odd) {
+    background: rgb(225, 225, 225);
+}
+
+th {
+    background: #26282d;
+    border: 1px solid rgb(160, 160, 160);
+    color: rgb(255, 255, 255);
+    padding: 0.8rem;
+}
+
+td {
+    border: 1px solid rgb(160, 160, 160);
+    padding: 0.8rem;
+}
+
+table tr:hover {
+    background: rgb(255, 235, 185);
+}
+
+.table-container {
+    margin: 0 0 1rem;
+    overflow: auto;
+    overflow-y: auto;
+    width: 100%;
+}
+
+#descripcion {
+    display: inline-block;
+    width: 30vw;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
+
+/*  Estilos para que las barras de desplazamiento horizontal se vean en los dispositivos IOS */
+
+.table-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    border: 3px solid #fff;
+}
+
+.filas-tabla {
+    background-color: #595959;
+    color: #fcd031;
+    width: 15vw;
+    height: 4vh;
+}
+
+
+/*--------------- botones------------------ */
+
+.botones {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 3vh;
+    margin: 5vh 0 0 0;
+}
+
+button.crear {
+    color: aliceblue;
+    float: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #4caf50;
+    border-radius: 10%;
+    padding: 1vw;
+    width: 15vw;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 1.5vw;
+}
+
+button.crear:hover {
+    background-color: #28bb2d;
+}
+
+button.crear:active {
+    background-color: #02ff0a;
+}
+
+button.close {
+    color: aliceblue;
+    float: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: rgb(196, 16, 16);
+    border-radius: 10%;
+    padding: 1vw;
+    width: 15vw;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 1.5vw;
+}
+
+button.close:hover {
+    background-color: rgb(214, 35, 35);
+}
+
+button.close:active {
+    background-color: red;
+}
+
+.btnsub .borrar {
+    width: 170px;
+    height: 60px;
+    background: #26282d;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4) inset;
+    border-radius: 48.5px;
+    background-image: url("../img/botones/Botonborrar.svg");
+    background-repeat: no-repeat;
+    overflow: auto;
+    background-repeat: round;
+    overflow: auto;
+}
+
+.borrar:hover {
+    background-color: #fcd031;
+}
+
+.borrar:active {
+    background-color: red;
+}
+
+.btn-eliminar:active {
+    background-color: red;
+}
+
+.paginate {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginate p {
+    padding: 1em;
+    color: #fcd031;
+}
+
+
+/* ---------------MENSAJES--------------- */
+
+.msj {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.mensajes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    padding: 15px;
+    width: 30vw;
+    text-align: center;
+}
+
+.mensajes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    text-align: center;
+    color: green;
+    border: solid rgb(54, 226, 12) 10px;
+    background-color: aliceblue;
+    padding: 15px;
+    width: 30vw;
+    text-align: center;
+}
+
+.mensajessucess {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    text-align: center;
+    color: red;
+    border: solid red 10px;
+    background-color: aliceblue;
+    padding: 15px;
+    width: 30vw;
+    text-align: center;
+}

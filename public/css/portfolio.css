@@ -1,0 +1,184 @@
+@font-face {
+    font-family: "Segoe";
+    src: url(../fonts/seguiemj.ttf);
+}
+
+@font-face {
+    font-family: "Sifonn";
+    src: url(../fonts/SIFONN_PRO.otf);
+}
+
+.bannerPrincipal {
+    background-color: #fcd031;
+    height: 60vh;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circulo {
+    display: flex;
+    background-color: aliceblue;
+    width: 45vh;
+    height: 45vh;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.circulo p {
+    font-size: 7vh;
+    font-family: Sifonn;
+}
+
+.proyecto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.redondo {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 150px;
+    margin: 25px;
+}
+
+.cajaImg {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cajaImg label {
+    color: aliceblue;
+    font-size: 2.5vh;
+    font-family: Sifonn;
+}
+
+.tituloo {
+    display: flex;
+    margin-top: 1vh;
+    align-items: center;
+    justify-content: center;
+    color: #fcd031;
+}
+
+input:checked+img {
+    background-color: #FFFBC1;
+}
+
+
+/* ---------------------------ACORDEON -----------*/
+
+ul.acordeon * {
+    font-family: Sifonn;
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+
+
+/* Contenedor general */
+
+ul.acordeon {
+    width: 100vw;
+    height: 75vh;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+    font-size: 0;
+    box-shadow: 0 0 10px #333;
+}
+
+
+/* Cada elemento */
+
+ul.acordeon li {
+    position: relative;
+    display: inline-block;
+    zoom: 1;
+    /* IE7 */
+    width: 9vw;
+    padding-bottom: 40%;
+    /* Ratio aspecto imagen = (height*X)/width */
+    background: #fcd031;
+    text-align: center;
+    box-shadow: -2px 0px 8px #999;
+}
+
+
+/* Títulos pestañas */
+
+ul.acordeon li h4 {
+    position: relative;
+    top: 0;
+    z-index: 1;
+    margin: 0;
+    font-size: 22px;
+    text-align: left;
+    text-transform: uppercase;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -webkit-transform-origin: 10% 120%;
+    -moz-transform-origin: 10% 120%;
+    transform-origin: 10% 120%;
+    white-space: nowrap;
+}
+
+
+/* Contenido inicialmente oculto */
+
+ul.acordeon li a,
+ul.acordeon li img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: inline-block;
+    /* display: inline; */
+    zoom: 1;
+    /* IE7 */
+    width: 0%;
+    padding: 0;
+    background: #333;
+}
+
+
+/* Hover: Desplegamos elemento aumentando su ancho */
+
+ul.acordeon li:hover {
+    width: 66%;
+    /* 100 - 10*(nºelem-1) // X=60 para ratio imagen */
+    background: #333;
+}
+
+
+/* Hover: Hacemos que el título recupere la horizontal y le ponemos un fondo */
+
+ul.acordeon li:hover h4 {
+    top: 20px;
+    padding-left: 10px;
+    background: #fcd031;
+    color: black;
+    -webkit-transform: none;
+    -moz-transform: none;
+    transform: none;
+}
+
+
+/* Hover: Expandimos el contenido */
+
+ul.acordeon li:hover a,
+ul.acordeon li:hover a img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Ajustes para resoluciones pequeñas */

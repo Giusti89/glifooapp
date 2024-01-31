@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Segoe';
+    src: url(../fonts/seguiemj.ttf);
+}
+
+@font-face {
+    font-family: "Sifonn";
+    src: url(../fonts/SIFONN_PRO.otf);
+}
+
+body {
+    background-color: #32353d;
+}
+
+.titulo {
+    display: flex;
+    width: 100%;
+    color: #FCD031;
+    align-items: center;
+    justify-content: center;
+    margin: 3vh 0 3vh 0;
+    font-size: 4vh;
+}
+
+.frmusuarios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 10vh 0;
+    background-color: #555555;
+    padding: 30px;
+}
+
+.datos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 15px;
+}
+
+.subtitulos {
+    display: flex;
+    font-size: 2.5em;
+    color: aliceblue;
+    margin: 1vh;
+}
+
+.selectores {
+    margin: 5px;
+}
+
+.entrada {
+    width: 30vw;
+}
+
+.cuadros {
+    width: 350px;
+    height: auto;
+    border: solid aliceblue;
+}
+
+.selector {
+    width: 30vw;
+}
+
+.botoness {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.editar {
+    color: aliceblue;
+    float: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #4CAF50;
+    border-radius: 10%;
+    padding: 1vw;
+    width: 20vw;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 2.5vw;
+}
+
+.editar:hover {
+    background-color: #28bb2d;
+}
+
+.editar:active {
+    background-color: #02ff0a;
+}
+
+.close {
+    color: aliceblue;
+    float: left;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: rgb(196, 16, 16);
+    border-radius: 10%;
+    padding: 1vw;
+    width: 20vw;
+    margin: 15px;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 2.5vw;
+}
+
+.close:hover {
+    background-color: rgb(214, 35, 35);
+}
+
+.close:active {
+    background-color: red;
+}
+
+@media screen and (max-width: 740px) {}

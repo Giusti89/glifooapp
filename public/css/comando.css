@@ -1,0 +1,33 @@
+.mensajes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    text-align: center;
+    color: red;
+    border: solid red 10px;
+    background-color: aliceblue;
+    padding: 15px;
+    width: 30vw;
+    text-align: center;
+}
+
+.mensajessucess {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    text-align: center;
+    color: green;
+    border: solid rgb(54, 226, 12) 10px;
+    background-color: aliceblue;
+    padding: 15px;
+    width: 30vw;
+    text-align: center;
+}
+
+.msjerr {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

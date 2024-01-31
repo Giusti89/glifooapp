@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+.contPrincipal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+.banerPrincipal {
+    margin: 15px;
+    width: 95%;
+}
+
+.banerPrincipal img {
+    width: 100%;
+    height: 606px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.art {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    margin-bottom: 50px;
+}
+
+.descrip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    gap: 15px;
+    background-color: aquamarine;
+}
+
+.descrip p {
+    width: 95%;
+    text-align: justify;
+}
+
+.redes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    background-color: aqua;
+}
+
+.conteBotones {
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: blue;
+}
+
+.boton {
+    margin: 15px;
+    width: 12vw;
+    gap: 5px;
+}
+
+.boton img {
+    width: 12vw;
+    border-radius: 24px;
+}
+
+.rectangulo {
+    margin-top: 50px;
+    width: 100%;
+    height: 100px;
+    background-color: blueviolet;
+}
+
+.repro {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    margin-bottom: 50px;
+}
+
+.repro video {
+    width: 100%;
+    height: auto;
+}
+
+.conteStore {
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    flex-wrap: wrap;
+    background-color: aquamarine;
+    margin-bottom: 50px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    padding: 5px;
+    margin: 15px;
+    gap: 15px;
+}
+
+.item img {
+    width: 20vw;
+    border-radius: 24px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item h2 {
+    text-align: center;
+}
+
+.item p {
+    text-align: justify;
+}
+
+.item b {
+    color: #fcd031;
+}

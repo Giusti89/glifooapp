@@ -1,0 +1,217 @@
+@font-face {
+    font-family: "Segoe";
+    src: url(../fonts/seguiemj.ttf);
+}
+
+@font-face {
+    font-family: "Sifonn";
+    src: url(../fonts/SIFONN_PRO.otf);
+}
+
+#myBtn2 {
+    background-color: green;
+    color: aliceblue;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 10%;
+    padding: 1vw;
+    width: 20vw;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 2.5vw;
+}
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    background-color: #fefefe;
+    color: #000;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.imgMuestra {
+    width: 15vw;
+    height: 15vh;
+    overflow: auto;
+    background-repeat: round;
+    resize: both;
+    overflow: auto;
+}
+
+
+/* The Close Button */
+
+.close {
+    color: black;
+    float: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #fcd031;
+    border-radius: 15%;
+    padding: 1vw;
+    margin-left: 2vw;
+}
+
+.crear {
+    color: black;
+    float: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: green;
+    border-radius: 15%;
+    padding: 1vw;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* -------------------tabla------------------- */
+
+table {
+    border: 1px solid rgb(200, 200, 200);
+    border-collapse: collapse;
+    font-size: .9rem;
+    width: 100%;
+    margin-top: 5vw;
+}
+
+tr {
+    text-align: center;
+}
+
+tr:nth-child(odd) {
+    background: rgb(225, 225, 225);
+}
+
+th {
+    background: #26282D;
+    border: 1px solid rgb(160, 160, 160);
+    color: rgb(255, 255, 255);
+    padding: .8rem;
+}
+
+td {
+    border: 1px solid rgb(160, 160, 160);
+    padding: .8rem;
+}
+
+table tr:hover {
+    background: rgb(255, 235, 185);
+}
+
+.table-container {
+    margin: 0 0 1rem;
+    overflow: auto;
+    overflow-y: auto;
+    width: 100%;
+}
+
+
+/*  Estilos para que las barras de desplazamiento horizontal se vean en los dispositivos IOS */
+
+.table-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 8px;
+    border: 3px solid #fff;
+}
+
+.filas-tabla {
+    background-color: #595959;
+    color: #fcd031;
+    width: 15vw;
+    height: 15vh;
+}
+
+.btn-modificar {
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-modificar:hover {
+    background-color: #45a049;
+}
+
+.btn-modificar:active {
+    background-color: #3e8e41;
+}
+
+.btn-eliminar {
+    background-color: rgb(196, 16, 16);
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-eliminar:hover {
+    background-color: rgb(214, 35, 35);
+}
+
+.btn-eliminar:active {
+    background-color: red;
+}
+
+.paginate {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 740px) {
+    #myBtn2 {
+        color: aliceblue;
+        font-size: 1.2em;
+        font-weight: bold;
+        background-color: #4CAF50;
+        border-radius: 10%;
+        padding: 1vw;
+        width: 20vw;
+        border-color: transparent;
+        cursor: pointer;
+        font-size: 4vw;
+    }
+}
