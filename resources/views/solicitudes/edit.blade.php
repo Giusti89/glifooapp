@@ -14,7 +14,7 @@
 
             <label for="cliente_id">Cliente:</label>
             <div class="selectores">
-                <select id="cliente_id" name="cliente_id" class="selector" readonly >
+                <select id="cliente_id" name="cliente_id" class="selector">
                     <option value=""></option>
                     @foreach ($cliente as $nombre => $id)
                         <option value="{{ $id }}" {{ ($clienteId == $id) ? 'selected' : '' }}>{{ $nombre }}</option>

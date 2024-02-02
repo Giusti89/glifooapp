@@ -24,7 +24,9 @@
                                 <th>Imagen</th>
                                 <th>Estado</th>
                                 <th>Borrar</th>
+                                <th>Editar</th>
                                 <th>Acción</th>
+                                
 
                             </tr>
                         </thead>
@@ -62,6 +64,15 @@
                                         </form>
                                     </td>
                                     <td class="filas-tabla">
+                                        
+                                        <a href="{{ route('spot.edit', $pu->id) }}">
+                                            <button type="button" class="btn-modificar">
+                                                Editar
+                                            </button>
+                                        </a>
+                                    </td>
+
+                                    <td class="filas-tabla">
                                         @if ($pu->advertising->nombre == 'Publicidad Store')
                                             
                                             <a href="{{ route('storepub', $pu->id) }}">
@@ -83,6 +94,7 @@
                                             </a>
                                         @endif
                                     </td>
+                                   
 
 
                                 </tr>

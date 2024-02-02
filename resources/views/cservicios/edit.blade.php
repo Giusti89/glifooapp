@@ -1,7 +1,4 @@
 <x-layouts.menus url="../../css/modificar.css">
-
-
-
     <div class="titulo">
         <h3>Realice las modificaciones pertinentes</h3>
     </div>
@@ -43,13 +40,7 @@
                     <button   class="close">Regresar</button>
                 </a>
             </div>
-
         </form>
-
     </div>
-
     </div>
-
-
-
 </x-layouts.menus>

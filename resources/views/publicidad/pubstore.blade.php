@@ -27,7 +27,11 @@
                                 {{ $art->contenido }}
                             </td>
                             <td class="filas-tabla">
-                                modificar
+                                <a href=" {{ route('articulo.edit', $art->id) }}">                                   
+                                    <button type="button"  class="btn-modificar">
+                                        MODIFICAR
+                                    </button>
+                                </a>
                             </td>
                             
                             <td class="filas-tabla">

@@ -48,17 +48,24 @@ class ArticlesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(articles $articles)
+    public function edit($id)
     {
-        //
+        $articulo = articles::find($id);
+        return view('articulo.edit', compact('articulo'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, articles $articles)
+    public function update(Request $request, $id)
     {
-        //
+        $articulo = articles::findOrFail($id);
+        $articulo->update([
+            'titulo' => $request->titulo,
+            'contenido' => $request->contenido,          
+            // Actualiza otros campos según sea necesario
+        ]);
+        return redirect()->route('storepub', ['id' => $articulo->spot_id, 'page' => 1])->with('success', 'Articulo actualizado exitosamente');
     }
 
     /**

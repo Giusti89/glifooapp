@@ -104,9 +104,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/publicidad.index', 'index')->name('publicidad.index');
         Route::get('/spots.create','create')->name('crearPubli');
         Route::post('/spots.store', 'store')->name('spot.store');
+        Route::get('/spots.edit/{id}', 'edit')->name('spot.edit');
         Route::delete('/spots.delete/{id}', 'destroy')->name('spot.delete');
         Route::get('/publicidad.pubstore/{id}', 'pstore')->name('storepub');
-
+        Route::put('/publicidad/{id}','update')->name('publicidad.update');
 
     });
     Route::controller(AdvertisingsController::class)->group(function(){
@@ -120,6 +121,8 @@ Route::middleware('auth')->group(function () {
     Route::controller(ArticlesController::class)->group(function(){
         Route::post('/publicidad.pubstore.store', 'store')->name('pubstore.store');
         Route::delete('/publicidad.pubstore.delete/{id}', 'destroy')->name('pubstore.delete');
+        Route::get('/articulo.edit/{id}', 'edit')->name('articulo.edit');
+        Route::put('/articulo.update/{id}', 'update')->name('articulo.update');
     });
 
 });

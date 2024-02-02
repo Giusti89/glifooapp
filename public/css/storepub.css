@@ -122,6 +122,23 @@ button.cerrar:active {
     background-color: red;
 }
 
+button.btn-modificar {
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-modificar:hover {
+    background-color: #45a049;
+}
+
+.btn-modificar:active {
+    background-color: #3e8e41;
+}
+
 table {
     border: 1px solid rgb(200, 200, 200);
     border-collapse: collapse;

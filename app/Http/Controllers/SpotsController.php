@@ -71,17 +71,61 @@ class SpotsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(spots $spots)
+    public function edit($id)
     {
-        //
+        $publicidad = spots::find($id);
+        if (!$publicidad) {
+            // Si la solicitud no existe, puedes redirigir a una página de error o a otra página
+            return redirect()->route('publicidad.index')->with('error', 'publicidad inexistente.');
+        }
+
+        $publi = advertisings::get(['id', 'nombre', 'descripcion']);
+
+        if ($publicidad) {
+            $id = $publicidad->id;
+            $clienteId = $publicidad->cliente_id;
+            $boton = $publicidad->boton;
+            $advertisingId = $publicidad->advertising_id;
+        }
+
+        return view('spots.edit', compact('publicidad', 'advertisingId', 'publi'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, spots $spots)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'publicidad' => 'required|exists:advertisings,id',
+            'image' => 'image|mimes:jpeg,png,webp|max:2048', 
+        ]);
+
+        $spot = spots::find($id);
+
+        if (!$spot) {
+            return redirect()->route('publicidad.index')->with('error', 'Spot no encontrado.');
+        }
+
+        $spot->advertising_id = $request->publicidad;
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+
+            
+            if ($spot->boton) {
+                Storage::delete('public/' . $spot->boton);
+            }
+
+            $path = Storage::putFile('public/publicidad/botones', $file);
+
+            $nuevo_path = str_replace('public/', '', $path);
+            $spot->boton = $nuevo_path;
+        }
+
+        $spot->save();
+
+        return redirect()->route('publicidad.index')->with('success', 'Spot actualizado exitosamente.');
     }
 
     /**
@@ -104,13 +148,18 @@ class SpotsController extends Controller
 
     public function pstore($id)
     {
-        $spotId =$id;
+        $spotId = $id;
         
+        $spot = spots::find($id);
 
+        if (!$spot) {
+            return redirect()->route('publicidad.index')->with('error', 'Spot no encontrado.');
+        }
+    
         $articles = Articles::where('spot_id', $spotId)->paginate(1);
-        $contador=$articles->count();
+        $contador = $articles->count();
 
         $identificador = $id;
-        return view('publicidad.pubstore', compact('identificador','articles','contador'));
+        return view('publicidad.pubstore', compact('identificador', 'articles', 'contador'));
     }
 }

@@ -86,6 +86,10 @@ class SolicitudesController extends Controller
     public function edit($id)
     {
         $solicitud = solicitudes::find($id);
+        if (!$solicitud) {
+            // Si la solicitud no existe, puedes redirigir a una página de error o a otra página
+            return redirect()->route('error')->with('error', 'Solicitud no encontrada.');
+        }
         if ($solicitud->realizado == 1) {
             return redirect()->route('solicitudes.index')->with('error', 'La solicitud ya está verificada.');
         }
@@ -94,10 +98,7 @@ class SolicitudesController extends Controller
         $solicitud = solicitudes::select('id', 'concepto', 'servicio_id', 'cliente_id')
             ->where('id', $id)
             ->first();
-        if (!$solicitud) {
-            // Si la solicitud no existe, puedes redirigir a una página de error o a otra página
-            return redirect()->route('error')->with('error', 'Solicitud no encontrada.');
-        }
+        
 
         $cliente = cliente::pluck('id', 'nombre');
         $servicio = Service::pluck('id', 'nombre');

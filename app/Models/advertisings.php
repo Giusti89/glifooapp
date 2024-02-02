@@ -9,6 +9,7 @@ class advertisings extends Model
 {
     use HasFactory;
     protected $fillable = ['nombre', 'descripcion'];
+    
     public function spot()
     {
         return $this->hasOne(Spots::class);
