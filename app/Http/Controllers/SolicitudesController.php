@@ -48,6 +48,7 @@ class SolicitudesController extends Controller
             "cliente_id" => "required"
 
         ], $messages);
+        
         $solicitud = new solicitudes();
         $solicitud->concepto = $request->concepto;
         $solicitud->servicio_id = $request->servicio_id;

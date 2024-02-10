@@ -5,7 +5,6 @@
             {{ __('Publicidad') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -14,7 +13,6 @@
                     <x-layouts.butonCrear contenido="Nueva Publicidad" enlace="spots.create">
                     </x-layouts.butonCrear>
                 </div>
-
                 <div class="table-container">
                     <table>
                         <thead>
@@ -25,16 +23,14 @@
                                 <th>Estado</th>
                                 <th>Borrar</th>
                                 <th>Editar</th>
-                                <th>Acción</th>
-                                
-
+                                <th>Acción</th>                              
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($publi as $pu)
                                 <tr>
                                     <td class="filas-tabla">
-                                        {{ $pu->clientes ? $pu->clientes->nombre : 'Cliente no disponible' }}
+                                        {{ $pu->cliente ? $pu->cliente->nombre : 'Cliente no disponible' }}
                                     </td>
                                     <td class="filas-tabla">
                                         {{ $pu->advertising ? $pu->advertising->nombre : 'Publicidad no disponible' }}
@@ -71,7 +67,6 @@
                                             </button>
                                         </a>
                                     </td>
-
                                     <td class="filas-tabla">
                                         @if ($pu->advertising->nombre == 'Publicidad Store')
                                             
@@ -93,22 +88,15 @@
                                                 </button>
                                             </a>
                                         @endif
-                                    </td>
-                                   
-
-
+                                    </td>                               
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-
                 <div class="paginate">
                     {{ $publi }}
                 </div>
-
-
-
             </div>
         </div>
     </div>

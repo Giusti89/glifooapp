@@ -36,11 +36,17 @@ class SpotsController extends Controller
     public function store(Request $request)
     {
         $messages = [
+            'cliente.required' => 'Seleccione un cliente.',
+            'publicidad.required' => 'Seleccione una publicidad.',
+
+
             'image.required' => 'El archivo de la imagen debe ser seleccionada.',
             'image.image' => 'El archivo de la imagen debe ser una imagen.',
             'image.mimes' => 'El archivo de la imagen debe ser de tipo: :values.',
         ];
         $request->validate([
+            'cliente' => 'required',
+            'publicidad' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp',
         ], $messages);
 
@@ -98,7 +104,7 @@ class SpotsController extends Controller
     {
         $request->validate([
             'publicidad' => 'required|exists:advertisings,id',
-            'image' => 'image|mimes:jpeg,png,webp|max:2048', 
+            'image' => 'image|mimes:jpeg,png,webp|max:2048',
         ]);
 
         $spot = spots::find($id);
@@ -112,7 +118,7 @@ class SpotsController extends Controller
         if ($request->hasFile('image')) {
             $file = $request->file('image');
 
-            
+
             if ($spot->boton) {
                 Storage::delete('public/' . $spot->boton);
             }
@@ -134,32 +140,40 @@ class SpotsController extends Controller
     public function destroy($id)
     {
         $spot = Spots::findOrFail($id);
+        $count = articles::where('spot_id', $spot->id)->count();
 
-        // Eliminar imagen asociada si existe
-        if ($spot->boton) {
-            Storage::delete('public/' . $spot->boton);
+        if ($count > 0) {
+
+            return redirect()->route('publicidad.index')->with('error', ' La publicidad no puede ser eliminada');
+        } else {
+            // Eliminar imagen asociada si existe
+            if ($spot->boton) {
+                Storage::delete('public/' . $spot->boton);
+            }
+
+            // Eliminar el registro del spot
+            $spot->delete();
+
+            return redirect()->route('publicidad.index')->with('success', 'Publicidad eliminada correctamente.');
         }
-
-        // Eliminar el registro del spot
-        $spot->delete();
-
-        return redirect()->route('publicidad.index')->with('success', 'Publicidad eliminada correctamente.');
     }
 
     public function pstore($id)
     {
         $spotId = $id;
-        
+
+
+
         $spot = spots::find($id);
 
         if (!$spot) {
             return redirect()->route('publicidad.index')->with('error', 'Spot no encontrado.');
         }
-    
+
         $articles = Articles::where('spot_id', $spotId)->paginate(1);
-        $contador = $articles->count();
+        $count = Articles::where('spot_id', $id)->count();
 
         $identificador = $id;
-        return view('publicidad.pubstore', compact('identificador', 'articles', 'contador'));
+        return view('publicidad.pubstore', compact('identificador', 'articles', 'count'));
     }
 }

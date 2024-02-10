@@ -11,7 +11,7 @@ class spots extends Model
 
 
     use HasFactory;
-    public function clientes()
+    public function cliente()
     {
         return $this->belongsTo(Cliente::class, 'cliente_id');
     }

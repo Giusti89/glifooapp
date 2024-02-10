@@ -22,4 +22,5 @@ class cliente extends Model
     {
         return $this->hasMany(spots::class, 'cliente_id');
     }
+
 }

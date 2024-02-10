@@ -6,14 +6,17 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\DetallesController;
+use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PubliController;
+use App\Http\Controllers\RedesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SolicitudesController;
 use App\Http\Controllers\SpotsController;
 use App\Http\Controllers\SubproductsController;
+use App\Http\Controllers\VideosController;
 use App\Models\subproducts;
 use App\Models\User;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -124,6 +127,31 @@ Route::middleware('auth')->group(function () {
         Route::get('/articulo.edit/{id}', 'edit')->name('articulo.edit');
         Route::put('/articulo.update/{id}', 'update')->name('articulo.update');
     });
+
+    Route::controller(RedesController::class)->group(function(){
+        Route::get('/redes.index/{id}', 'index')->name('redes.index');
+        Route::post('/redes.create', 'store')->name('redes.store');
+        Route::delete('/redes.delete/{id}', 'destroy')->name('redes.delete');
+        Route::get('/redes.edit/{id}', 'edit')->name('redes.edit');
+        Route::put('/redes.update/{id}', 'update')->name('redes.update');       
+    });
+
+    Route::controller(VideosController::class)->group(function(){
+        Route::get('/videos.index/{id}', 'index')->name('video.index');
+        Route::post('/videos.create', 'store')->name('video.store');
+        Route::delete('/videos.delete/{id}', 'destroy')->name('video.delete');
+        Route::get('/videos.edit/{id}', 'edit')->name('video.edit');
+        Route::put('/videos.update/{id}', 'update')->name('video.update');       
+    });
+
+    Route::controller(ImagesController::class)->group(function(){
+        Route::get('/galeria.index/{id}', 'index')->name('galeria.index');
+        Route::post('/galeria.create', 'store')->name('galeria.store');
+        Route::delete('/galeria.delete/{id}', 'destroy')->name('galeria.delete');
+        Route::get('/galeria.edit/{id}', 'edit')->name('galeria.edit');
+        Route::put('/galeria.update/{id}', 'update')->name('galeria.update');       
+    });
+
 
 });
 

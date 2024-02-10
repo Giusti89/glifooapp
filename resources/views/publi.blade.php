@@ -1,7 +1,7 @@
-{{-- <x-layouts.pstore >
+<x-layouts.pstore >
    
-</x-layouts.pstore> --}}
-<x-layouts.principal titulo="Servicios" url="./css/publi.css">
+</x-layouts.pstore>
+{{-- <x-layouts.principal titulo="Servicios" url="./css/publi.css">
     <div class="contenedor">
         <div class="cabz">
             <div class="artz">
@@ -30,4 +30,4 @@
             </div>
         </div>
     </div>
-</x-layouts.principal>
+</x-layouts.principal> --}}

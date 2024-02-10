@@ -28,19 +28,7 @@
                     voluptatem temporibus ducimus enim?
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia necessitatibus ipsa deserunt harum
                     nostrum ut similique quidem, dolorum laboriosam numquam cum sint libero facilis consequuntur impedit
-                    voluptatem temporibus ducimus enim?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia necessitatibus ipsa deserunt harum
-                    nostrum ut similique quidem, dolorum laboriosam numquam cum sint libero facilis consequuntur impedit
-                    voluptatem temporibus ducimus enim?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia necessitatibus ipsa deserunt harum
-                    nostrum ut similique quidem, dolorum laboriosam numquam cum sint libero facilis consequuntur impedit
-                    voluptatem temporibus ducimus enim?
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ad sit soluta repudiandae eaque
-                    itaque non quibusdam nulla laudantium molestiae, tenetur, voluptatem, consectetur quidem vero maxime
-                    distinctio minima praesentium odit!
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam consequatur atque praesentium
-                    itaque sint ea saepe neque, autem accusantium repudiandae corrupti ex quo animi perferendis rerum id
-                    iste, necessitatibus magni.
+                    voluptatem temporibus ducimus enim?                 
 
                 </p>
             </div>
@@ -85,7 +73,7 @@
 
         <div class="repro">
             <video  autoplay="false" controls>
-                <source src="./videos/Video portada.mp4" type="video/mp4" />
+                <source src="./videos/sifon.mp4" type="video/mp4" />
             </video>
 
         </div>

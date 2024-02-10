@@ -2,9 +2,7 @@
     <div class="titulo">
         <h3>Crear Spot</h3>
     </div>
-    <div class="conterrores">
-        @include('fragments._errors-form')
-    </div>
+   
 
     <div class="formulario">
        

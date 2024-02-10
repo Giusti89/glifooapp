@@ -11,7 +11,6 @@ class redes extends Model
 
     public function spot()
     {
-        return $this->belongsTo(Spots::class);
-    }
-    
+        return $this->belongsTo(spots::class);
+    }    
 }

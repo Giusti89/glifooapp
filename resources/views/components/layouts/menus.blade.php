@@ -36,7 +36,9 @@
                 </div>
             @endif
         </div>
-
+        <div class="conterrores">
+            @include('fragments._errors-form')
+        </div>
 
         {{ $slot }}
 

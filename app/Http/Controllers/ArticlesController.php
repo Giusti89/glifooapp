@@ -34,7 +34,7 @@ class ArticlesController extends Controller
         $articulo->contenido = $request->contenido;
 
         $articulo->save();
-        return redirect()->route('storepub', ['id' => $request->iden])->with('success', 'publicidad creada correctamente.');
+        return redirect()->route('storepub', ['id' => $request->iden])->with('success', 'Articulo creado de manera correctamente.');
     }
 
     /**
@@ -51,6 +51,9 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $articulo = articles::find($id);
+        if (!$vid = articles::find($id)) {
+            return redirect()->route('publicidad.index')->with('error', 'articulo inexistente.');
+        }
         return view('articulo.edit', compact('articulo'));
     }
 

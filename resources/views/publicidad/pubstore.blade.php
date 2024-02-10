@@ -27,13 +27,13 @@
                                 {{ $art->contenido }}
                             </td>
                             <td class="filas-tabla">
-                                <a href=" {{ route('articulo.edit', $art->id) }}">                                   
-                                    <button type="button"  class="btn-modificar">
+                                <a href=" {{ route('articulo.edit', $art->id) }}">
+                                    <button type="button" class="btn-modificar">
                                         MODIFICAR
                                     </button>
                                 </a>
                             </td>
-                            
+
                             <td class="filas-tabla">
                                 <div class="btnsub">
                                     <form action="{{ route('pubstore.delete', $art->id) }}" method="post">
@@ -51,7 +51,6 @@
             <div class="paginate">
                 {{ $articles }}
             </div>
-
         </div>
         <div class="frm-carga">
             <form class="fmdatos" action={{ route('pubstore.store') }} method="post">
@@ -67,14 +66,18 @@
                 </textarea>
 
                 <div class="botones">
-                    <button data-modal-toggle="defaultModal" type="submit" class="crear">Guardar</button>
+                    @if ($count > 0)
+                        <a href="{{ route('redes.index', $identificador) }}">
+                            <button data-modal-toggle="defaultModal" type="button" class="crear">Siguiente</button>
+                        </a>
+                    @else
+                        <button data-modal-toggle="defaultModal" type="submit" class="crear">Guardar</button>
+                    @endif
                     <a href="{{ route('publicidad.index') }}">
                         <button data-modal-toggle="defaultModal" type="button" class="cerrar">Cancelar</button>
                     </a>
                 </div>
             </form>
-
         </div>
-
     </div>
 </x-layouts.menus>
