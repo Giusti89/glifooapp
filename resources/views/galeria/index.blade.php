@@ -83,8 +83,8 @@
 
 
                 <div class="botones">
-                    @if ($count > 5)
-                        <a href="">
+                    @if ($count >= 5)
+                        <a href="{{ route('tienda.index', $identificador) }}">
                             <button data-modal-toggle="defaultModal" type="button" class="crear">Siguiente</button>
                         </a>
                     @else

@@ -1,0 +1,267 @@
+table {
+    border: 1px solid rgb(200, 200, 200);
+    border-collapse: collapse;
+    font-size: .9rem;
+    width: 100%;
+    margin-top: 5vw;
+    margin-bottom: 100px;
+}
+
+tr {
+    text-align: center;
+}
+
+tr:nth-child(odd) {
+    background: rgb(225, 225, 225);
+}
+
+th {
+    background: #26282D;
+    border: 1px solid rgb(160, 160, 160);
+    color: rgb(255, 255, 255);
+    padding: .8rem;
+}
+
+td {
+    border: 1px solid rgb(160, 160, 160);
+    padding: .8rem;
+}
+
+table tr:hover {
+    background: rgb(255, 235, 185);
+}
+
+.table-container {
+    margin: 0 0 1rem;
+    overflow: auto;
+    overflow-y: auto;
+    width: 100%;
+}
+
+
+/*  Estilos para que las barras de desplazamiento horizontal se vean en los dispositivos IOS */
+
+.table-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 8px;
+    border: 3px solid #fff;
+}
+
+.filas-tabla {
+    background-color: #595959;
+    color: #fcd031;
+    width: 15vw;
+    height: 25vh;
+}
+
+.filas-tabla img {
+    width: 270px;
+    height: 150px;
+    background-size: cover;
+}
+
+.carga-video {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    display: flex;
+    width: 100%;
+    color: #FCD031;
+    align-items: center;
+    justify-content: center;
+    margin: 3vh 0 3vh 0;
+    font-size: 4vh;
+}
+
+.frm-carga {
+    margin-top: 15vh;
+    margin-bottom: 5vh;
+}
+
+.siguiente {
+    margin-bottom: 15vh;
+}
+
+.formulario {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 10vh 0;
+}
+
+.fmdatos label {
+    color: #FCD031;
+}
+
+.fmdatos {
+    display: flex;
+    width: 40vw;
+    flex-direction: column;
+    gap: 3vh;
+    font-size: 3vh;
+    padding: 15px;
+}
+
+.botones {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3vh;
+    margin: 5vh 0 0 0;
+}
+
+.conterrores {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px;
+}
+
+.btnsub .borrar {
+    width: 170px;
+    height: 60px;
+    background: #26282D;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.40) inset;
+    border-radius: 48.50px;
+    background-image: url('../img/botones/Botonborrar.svg');
+    background-repeat: no-repeat;
+    overflow: auto;
+    background-repeat: round;
+    overflow: auto;
+}
+
+.borrar:hover {
+    background-color: #fcd031;
+}
+
+.borrar:active {
+    background-color: red;
+}
+
+button.crear {
+    color: aliceblue;
+    float: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: #4CAF50;
+    border-radius: 10%;
+    padding: 1vw;
+    width: 20vw;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 2.5vw;
+}
+
+button.crear:hover {
+    background-color: #28bb2d;
+}
+
+button.crear:active {
+    background-color: #02ff0a;
+}
+
+button.cerrar {
+    color: aliceblue;
+    float: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: solid;
+    background-color: rgb(196, 16, 16);
+    border-radius: 10%;
+    padding: 1vw;
+    width: 20vw;
+    border-color: transparent;
+    cursor: pointer;
+    font-size: 2.5vw;
+}
+
+button.cerrar:hover {
+    background-color: rgb(214, 35, 35);
+}
+
+button.cerrar:active {
+    background-color: red;
+}
+
+button.btn-modificar {
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-modificar:hover {
+    background-color: #45a049;
+}
+
+.btn-modificar:active {
+    background-color: #3e8e41;
+}
+
+.visor {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: #02ff0a;
+}
+
+.contenido {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 95%;
+    background-color: aliceblue;
+    justify-content: center;
+}
+
+.contenido img {
+    width: 270px;
+    height: 150px;
+    background-size: cover;
+}
+
+.divisor {
+    width: 100%;
+    height: 5px;
+    background-color: black;
+}
+
+.repro {
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.repro video {
+    width: 100%;
+    height: auto;
+}
+
+.paginate {
+    color: #FCD031;
+    margin: 15px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}

@@ -73,7 +73,7 @@
                     @else
                         <button data-modal-toggle="defaultModal" type="submit" class="crear">Guardar</button>
                     @endif
-                    <a href="{{ route('publicidad.index') }}">
+                    <a href="{{ route('publicidad.index',$identificador) }}">
                         <button data-modal-toggle="defaultModal" type="button" class="cerrar">Cancelar</button>
                     </a>
                 </div>

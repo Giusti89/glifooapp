@@ -17,12 +17,12 @@ class ImagesController extends Controller
     {
         $identificador = $id;
 
-        $prio = prioritys::pluck('nombre', 'id'); 
-    
+        $prio = prioritys::pluck('nombre', 'id');
+
         $imagenes = images::with('priority')->where('spot_id', $id)->paginate(2);
-       
-        $count = $imagenes->total(); 
-    
+
+        $count = $imagenes->total();
+
         return view('galeria.index', compact('imagenes', 'identificador', 'count', 'prio'));
     }
 
@@ -39,8 +39,21 @@ class ImagesController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+            'prioridad.required' => 'Introducir el nombre de la red social.',
+                       
+            'image.required' => 'El archivo de la imagen debe ser seleccionada.',
+            'image.image' => 'El archivo de la imagen debe ser una imagen.',
+            'image.mimes' => 'El archivo de la imagen debe ser de tipo: :values.',
+        ];
+
+        $request->validate([
+            'prioridad' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp',
+        ], $messages);
+
         $imagen = new images;
-        $imagen->ruta = $request->image;
+
         $imagen->prioridad_id = $request->prioridad;
         $imagen->spot_id = $request->iden;
 
@@ -58,7 +71,7 @@ class ImagesController extends Controller
             $imagen->ruta = $nuevoPath;
         }
         $imagen->save();
-        return redirect()->route('galeria.index', $request->iden)->with('success', 'creada correctamente.');
+        return redirect()->route('galeria.index', $request->iden)->with('success', 'Imagen creada correctamente.');
     }
 
     /**
@@ -76,13 +89,13 @@ class ImagesController extends Controller
     {
         $imgg = images::find($id);
         $prio = prioritys::get(['id', 'nombre']);
-        
+
         if (!$imgg) {
             return redirect()->route('publicidad.index')->with('error', 'Imagen  inexistente.');
         } else {
             // Si $reed no es nulo, puedes acceder a sus propiedades            
             $spot_id = $imgg->prioridad_id;
-            return view('galeria.edit', compact('imgg','prio','spot_id'));
+            return view('galeria.edit', compact('imgg', 'prio', 'spot_id'));
         }
     }
 
@@ -95,7 +108,7 @@ class ImagesController extends Controller
         if (!$imgg) {
             return redirect()->route('publicidad.index')->with('error', 'Imagen no encontrada.');
         }
-        $imgg->prioridad_id=$request->prioridad;
+        $imgg->prioridad_id = $request->prioridad;
         $nombreCliente = $imgg->spot->cliente->nombre;
 
         if ($request->hasFile('image')) {
@@ -114,7 +127,7 @@ class ImagesController extends Controller
 
         $imgg->save();
 
-        return redirect()->route('galeria.index',$imgg->spot_id)->with('success', 'Imagen actualizada exitosamente.');
+        return redirect()->route('galeria.index', $imgg->spot_id)->with('success', 'Imagen actualizada exitosamente.');
     }
 
     /**

@@ -78,9 +78,7 @@ class RedesController extends Controller
             }
 
             $red->save();
-            if ( $red->save()) {
-                return redirect()->route('spot.index', $request->iden)->with('error', 'no es posible realizar la accion.');
-            }
+           
 
             return redirect()->route('redes.index', $request->iden)->with('success', 'red creada correctamente.');
         }

@@ -6,7 +6,7 @@
 
         <div class="banner">
             <div class="redondo">
-                <img src="./img/servicios/vistazo.webp" alt="">
+                <img src="./img/servicios/vistazo.webp" alt="vistazo">
             </div>
         </div>
 
@@ -33,7 +33,7 @@
                             <p> {{ $tar->descripcion }}</p>
                         </div>
                         <div class="btnver">
-                            <a href=""><button>Saber Más</button></a>
+                            <a href="#"><button>Saber Más</button></a>
                         </div>
                     </div>
                 </div>

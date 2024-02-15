@@ -5,137 +5,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width= , initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/pubStore.css">
-    <title>hola</title>
+    <link rel="stylesheet" href="../css/pubStore.css">
+
+    <link rel="icon" href="{{ asset('storage/' . $logoCliente ?? '') }}">
+
+    <title>{{ $titulo ?? '' }}</title>
 </head>
 
 <body>
     <div class="contPrincipal">
         <div class="banerPrincipal">
-            <img src="./img/porDefecto/imagen1.jpg" alt="">
+            <img src="{{ asset('storage/' . $imagenPrincipal ?? '') }}" alt="{{ $titulo ?? '' }}">
         </div>
         <div class="art">
             <div class="descrip">
-                <h1>Titulo de la empresa</h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia necessitatibus ipsa deserunt harum
-                    nostrum ut similique quidem, dolorum laboriosam numquam cum sint libero facilis consequuntur impedit
-                    voluptatem temporibus ducimus enim?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia necessitatibus ipsa deserunt harum
-                    nostrum ut similique quidem, dolorum laboriosam numquam cum sint libero facilis consequuntur impedit
-                    voluptatem temporibus ducimus enim?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia necessitatibus ipsa deserunt harum
-                    nostrum ut similique quidem, dolorum laboriosam numquam cum sint libero facilis consequuntur impedit
-                    voluptatem temporibus ducimus enim?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia necessitatibus ipsa deserunt harum
-                    nostrum ut similique quidem, dolorum laboriosam numquam cum sint libero facilis consequuntur impedit
-                    voluptatem temporibus ducimus enim?                 
-
-                </p>
+                <h1>{{ $tituloArticulo ?? '' }}</h1>
+                <p>{{ $textoArticulo ?? '' }}</p>
             </div>
             <div class="redes">
                 <div class="conteBotones">
-                    <div class="boton">
-                        <a href="">
-                            <img src="./img/porDefecto/imagen1.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="boton">
-                        <a href="">
-                            <img src="./img/porDefecto/imagen1.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="boton">
-                        <a href="">
-                            <img src="./img/porDefecto/imagen1.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="boton">
-                        <a href="">
-                            <img src="./img/porDefecto/imagen1.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="boton">
-                        <a href="">
-                            <img src="./img/porDefecto/imagen1.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="boton">
-                        <a href="">
-                            <img src="./img/porDefecto/imagen1.jpg" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="rectangulo">
+                    @foreach ($redes as $red)
+                        <div class="boton">
+                            <a href="{{ $red->link }}" target="_blank">
+                                <img src="{{ asset('storage/' . $red->imagen) }}" alt="{{ $red->nombre }}">
+                            </a>
+                        </div>
+                    @endforeach
+
 
                 </div>
+                <div class="rectangulo"></div>
             </div>
         </div>
 
         <div class="repro">
-            <video  autoplay="false" controls>
-                <source src="./videos/sifon.mp4" type="video/mp4" />
+            <video autoplay="false" controls>
+                <source src="{{ asset('storage/' . $videoPrincipal ?? '') }}" type="video/mp4" />
             </video>
 
         </div>
         <div class="conteStore">
-            <div class="item">
-                <img src="./img/porDefecto/imagen1.jpg" alt="">
-                <h2>Nombre del producto</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ea libero eius assumenda adipisci, optio modi deleniti dignissimos pariatur blanditiis ab quam ex sequi ducimus iure magni. Obcaecati, officiis dolorum.em</p>
-                <b>Costo</b>
-            </div>
-            
-            <div class="item">
-                <img src="./img/porDefecto/imagen1.jpg" alt="">
-                <h2>Nombre del producto</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ea libero eius assumenda adipisci, optio modi deleniti dignissimos pariatur blanditiis ab quam ex sequi ducimus iure magni. Obcaecati, officiis dolorum.em</p>
-                <b>Costo</b>
-            </div>
-            <div class="item">
-                <img src="./img/porDefecto/imagen1.jpg" alt="">
-                <h2>Nombre del producto</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ea libero eius assumenda adipisci, optio modi deleniti dignissimos pariatur blanditiis ab quam ex sequi ducimus iure magni. Obcaecati, officiis dolorum.em</p>
-                <b>Costo</b>
-            </div>
-            
-            <div class="item">
-                <img src="./img/porDefecto/imagen1.jpg" alt="">
-                <h2>Nombre del producto</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ea libero eius assumenda adipisci, optio modi deleniti dignissimos pariatur blanditiis ab quam ex sequi ducimus iure magni. Obcaecati, officiis dolorum.em</p>
-                <b>Costo</b>
-            </div>
-            <div class="item">
-                <img src="./img/porDefecto/imagen1.jpg" alt="">
-                <h2>Nombre del producto</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ea libero eius assumenda adipisci, optio modi deleniti dignissimos pariatur blanditiis ab quam ex sequi ducimus iure magni. Obcaecati, officiis dolorum.em</p>
-                <b>Costo</b>
-            </div>
-            
-            <div class="item">
-                <img src="./img/porDefecto/imagen1.jpg" alt="">
-                <h2>Nombre del producto</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ea libero eius assumenda adipisci, optio modi deleniti dignissimos pariatur blanditiis ab quam ex sequi ducimus iure magni. Obcaecati, officiis dolorum.em</p>
-                <b>Costo</b>
-            </div>
-            <div class="item">
-                <img src="./img/porDefecto/imagen1.jpg" alt="">
-                <h2>Nombre del producto</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ea libero eius assumenda adipisci, optio modi deleniti dignissimos pariatur blanditiis ab quam ex sequi ducimus iure magni. Obcaecati, officiis dolorum.em</p>
-                <b>Costo</b>
-            </div>
-            
-            <div class="item">
-                <img src="./img/porDefecto/imagen1.jpg" alt="">
-                <h2>Nombre del producto</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus ea libero eius assumenda adipisci, optio modi deleniti dignissimos pariatur blanditiis ab quam ex sequi ducimus iure magni. Obcaecati, officiis dolorum.em</p>
-                <b>Costo</b>
-            </div>
+            @foreach ($articulo as $art)
+                <div class="item">
+                    <img src="{{ asset('storage/' . $art->ruta) }}" alt="">
+                    <h2>{{ $art->nombre }}</h2>
+                    <p>{{ $art->descripcion }}</p>
+                    <b>{{ $art->costo }}</b>
+                </div>
+            @endforeach
 
         </div>
-
-
     </div>
-
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 <x-layouts.menus url="../../css/redesindex.css">
     <div class="carga-video">        
             <div class="titulo">
-                <h3>Carga de redes sociales</h3>
+                <h3>Redes sociales</h3>
             </div>        
         <div class="frm-carga">
             <form class="fmdatos" action="{{ route('redes.update', $reed->id) }}" enctype="multipart/form-data" method="post">

@@ -6,6 +6,7 @@ use App\Models\cliente;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ClienteController extends Controller
 {
@@ -146,16 +147,26 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        if ($cliente->solicitudes()->count() > 0) {
-            return redirect()->route('clientes.index')->with('error', 'No puedes eliminar el cliente.');
+        try {
+            if ($cliente->solicitudes()->count() > 0) {
+                return redirect()->route('clientes.index')->with('error', 'No puedes eliminar el cliente.');
+            }
+    
+            $cliente->delete();
+            if ($cliente->logo_url) {
+                Storage::delete('public/' . $cliente->logo_url);
+            }
+    
+            // Eliminar la carpeta del cliente si existe
+            Storage::deleteDirectory("public/publicidad/$cliente->nombre");
+    
+            return redirect()->route('clientes.index')->with('success', 'Cliente eliminado correctamente.');
+        } catch (ModelNotFoundException $e) {
+            // Manejo de la excepción si el cliente no se encuentra
+            return redirect()->route('clientes.index')->with('error', 'El cliente no pudo ser encontrado.');
+        } catch (\Exception $e) {
+            // Otro tipo de excepción
+            return redirect()->route('clientes.index')->with('error', 'El cliente no puede ser eliminado');
         }
-
-        if ($cliente->logo_url) {
-            Storage::delete('public/' . $cliente->logo_url);
-        }
-
-        $cliente->delete();
-
-        return redirect()->route('clientes.index')->with('success', 'Cliente eliminado correctamente.');
     }
 }

@@ -8,6 +8,7 @@ use App\Models\cliente;
 use App\Models\spots;
 use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class SpotsController extends Controller
 {
@@ -36,34 +37,41 @@ class SpotsController extends Controller
     public function store(Request $request)
     {
         $messages = [
-            'cliente.required' => 'Seleccione un cliente.',
+            'cliente.required' => 'Seleccione un cliente.',          
             'publicidad.required' => 'Seleccione una publicidad.',
-
-
-            'image.required' => 'El archivo de la imagen debe ser seleccionada.',
+            'slug.required' => 'Ingresar la URL valida.',
+            'slug.unique' => 'El slug ya existe.',
+    
+            'image.required' => 'El archivo de la imagen debe ser seleccionado.',
             'image.image' => 'El archivo de la imagen debe ser una imagen.',
             'image.mimes' => 'El archivo de la imagen debe ser de tipo: :values.',
         ];
+    
         $request->validate([
             'cliente' => 'required',
             'publicidad' => 'required',
+            'slug' => 'required|unique:spots,slug',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp',
         ], $messages);
-
+    
         $spot = new spots;
         $spot->cliente_id = $request->cliente;
         $spot->advertising_id = $request->publicidad;
-
+        $nombreProducto = $request->slug; 
+        $slug = Str::slug($nombreProducto);
+        
+        $spot->slug = $slug;
+    
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-
+    
             $path = Storage::putFile('public/publicidad/botones', $request->file('image'));
             $nuevo_path = str_replace('public/', '', $path);
             $spot->boton = $nuevo_path;
         }
         $spot->save();
-
-        return redirect()->route('publicidad.index')->with('success', 'publicidad creada correctamente.');
+    
+        return redirect()->route('publicidad.index')->with('success', 'Publicidad creada correctamente.');
     }
 
     /**

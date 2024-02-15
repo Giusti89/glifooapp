@@ -4,13 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class spots extends Model
 {
-    protected $fillable = ['cliente_id', 'advertising_id', 'boton'];
+    protected $fillable = ['cliente_id', 'advertising_id', 'boton','slug'];
 
 
     use HasFactory;
+
+    public function getRouteKeyName()
+    {
+        return 'slug'; 
+    }
+
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = Str::slug($value);
+    }
+
     public function cliente()
     {
         return $this->belongsTo(Cliente::class, 'cliente_id');

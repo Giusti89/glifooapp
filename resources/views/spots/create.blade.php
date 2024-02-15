@@ -1,6 +1,6 @@
 <x-layouts.menus url="../../css/spotcreate.css">
     <div class="titulo">
-        <h3>Crear Spot</h3>
+        <h3>Crear Publicidad</h3>
     </div>
    
 
@@ -20,6 +20,9 @@
                     @endforeach
                 </select>
             </div>
+            <label for="titulo">Slug de la publicidad:</label>
+                <input type="text" name="slug" id="slug" value="{{ old('slug') }}"
+                    placeholder="Ingresar slug">
         
             <label for="">Tipo de Publicidad:</label>
             <div class="selectores">

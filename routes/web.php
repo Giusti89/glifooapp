@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PubliController;
 use App\Http\Controllers\RedesController;
+use App\Http\Controllers\SellsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SolicitudesController;
@@ -30,8 +31,9 @@ Route::post('/contacto.store', [ContactoController::class, 'store'])->name('cont
 
 
 Route::controller(PubliController::class)->group(function () {
-    Route::get('/publi','index')->name('publicidad');
-    });
+    Route::get('/publi', 'index')->name('publicidad');
+    Route::get('/publicidad.tienda/{slug}', 'show')->name('publicidad.show');
+});
 
 Route::view('privacidad', 'privacidad')->name('privacidad');
 Route::get('nosotros', [ProfileController::class, 'tarjetas'])->name('nosotros');
@@ -111,8 +113,8 @@ Route::middleware('auth')->group(function () {
         Route::delete('/spots.delete/{id}', 'destroy')->name('spot.delete');
         Route::get('/publicidad.pubstore/{id}', 'pstore')->name('storepub');
         Route::put('/publicidad/{id}','update')->name('publicidad.update');
-
     });
+    
     Route::controller(AdvertisingsController::class)->group(function(){
         Route::get('/adveristings.index', 'index')->name('adveristings');
         Route::get('/adveristings.create','create')->name('acreate.dveristings');
@@ -151,6 +153,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/galeria.edit/{id}', 'edit')->name('galeria.edit');
         Route::put('/galeria.update/{id}', 'update')->name('galeria.update');       
     });
+
+    Route::controller(SellsController::class)->group(function(){
+        Route::get('/tienda.index/{id}', 'index')->name('tienda.index');
+        Route::post('/tienda.create', 'store')->name('tienda.store');
+        Route::delete('/tienda.delete/{id}', 'destroy')->name('tienda.delete');
+        Route::get('/tienda.edit/{id}', 'edit')->name('tienda.edit');
+        Route::put('/tienda.update/{id}', 'update')->name('tienda.update');       
+    });
+
 
 
 });
