@@ -29,7 +29,7 @@
 
 
                         <td class="filas-tabla">
-                            
+
                             <a href="{{ route('galeria.edit', $im->id) }}">
                                 <button type="button" class="btn-modificar">
                                     MODIFICAR
@@ -83,17 +83,32 @@
 
 
                 <div class="botones">
-                    @if ($count >= 5)
-                        <a href="{{ route('tienda.index', $identificador) }}">
-                            <button data-modal-toggle="defaultModal" type="button" class="crear">Siguiente</button>
+                    @if ($advertisingNombre != 'Publicidad Store')
+                    {{-- {{ route('terminado', $marcador) }} --}}
+                        <form action="" class="formulario" method="post">
+                            @method('PUT')
+                            @csrf
+                            
+                                <button data-modal-toggle="defaultModal" type="submit" class="crear">Publicar</button>
+                            
+                        </form>
+                        <a href="{{ route('video.index', $identificador) }}">
+                            <button data-modal-toggle="defaultModal" type="button" class="cerrar">Cancelar</button>
                         </a>
                     @else
-                        <button data-modal-toggle="defaultModal" type="submit" class="crear">Guardar</button>
-                    @endif
+                        @if ($count >= 5)
+                            <a href="{{ route('tienda.index', $identificador) }}">
+                                <button data-modal-toggle="defaultModal" type="button"
+                                    class="crear">Siguiente</button>
+                            </a>
+                        @else
+                            <button data-modal-toggle="defaultModal" type="submit" class="crear">Guardar</button>
+                        @endif
 
-                    <a href="{{ route('video.index', $identificador) }}">
-                        <button data-modal-toggle="defaultModal" type="button" class="cerrar">Cancelar</button>
-                    </a>
+                        <a href="{{ route('video.index', $identificador) }}">
+                            <button data-modal-toggle="defaultModal" type="button" class="cerrar">Cancelar</button>
+                        </a>
+                    @endif
                 </div>
             </form>
         </div>

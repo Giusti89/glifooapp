@@ -6,6 +6,7 @@ use App\Models\advertisings;
 use App\Models\articles;
 use App\Models\cliente;
 use App\Models\spots;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -37,40 +38,40 @@ class SpotsController extends Controller
     public function store(Request $request)
     {
         $messages = [
-            'cliente.required' => 'Seleccione un cliente.',          
+            'cliente.required' => 'Seleccione un cliente.',
             'publicidad.required' => 'Seleccione una publicidad.',
             'slug.required' => 'Ingresar la URL valida.',
             'slug.unique' => 'El slug ya existe.',
-    
+
             'image.required' => 'El archivo de la imagen debe ser seleccionado.',
             'image.image' => 'El archivo de la imagen debe ser una imagen.',
             'image.mimes' => 'El archivo de la imagen debe ser de tipo: :values.',
         ];
-    
+
         $request->validate([
             'cliente' => 'required',
             'publicidad' => 'required',
             'slug' => 'required|unique:spots,slug',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp',
         ], $messages);
-    
+
         $spot = new spots;
         $spot->cliente_id = $request->cliente;
         $spot->advertising_id = $request->publicidad;
-        $nombreProducto = $request->slug; 
+        $nombreProducto = $request->slug;
         $slug = Str::slug($nombreProducto);
-        
+
         $spot->slug = $slug;
-    
+
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-    
+
             $path = Storage::putFile('public/publicidad/botones', $request->file('image'));
             $nuevo_path = str_replace('public/', '', $path);
             $spot->boton = $nuevo_path;
         }
         $spot->save();
-    
+
         return redirect()->route('publicidad.index')->with('success', 'Publicidad creada correctamente.');
     }
 
@@ -114,32 +115,40 @@ class SpotsController extends Controller
             'publicidad' => 'required|exists:advertisings,id',
             'image' => 'image|mimes:jpeg,png,webp|max:2048',
         ]);
-
+    
         $spot = spots::find($id);
-
+    
         if (!$spot) {
             return redirect()->route('publicidad.index')->with('error', 'Spot no encontrado.');
         }
-
-        $spot->advertising_id = $request->publicidad;
-
+    
+        $cambiosRealizados = false;
+    
+        if ($spot->advertising_id != $request->publicidad) {
+            $spot->advertising_id = $request->publicidad;
+            $cambiosRealizados = true;
+        }
+    
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-
-
+    
             if ($spot->boton) {
                 Storage::delete('public/' . $spot->boton);
             }
-
+    
             $path = Storage::putFile('public/publicidad/botones', $file);
-
+    
             $nuevo_path = str_replace('public/', '', $path);
             $spot->boton = $nuevo_path;
+            $cambiosRealizados = true;
         }
-
-        $spot->save();
-
-        return redirect()->route('publicidad.index')->with('success', 'Spot actualizado exitosamente.');
+    
+        if ($cambiosRealizados) {
+            $spot->save();
+            return redirect()->route('publicidad.index')->with('success', 'Spot actualizado exitosamente.');
+        }
+    
+        return redirect()->route('publicidad.index')->with('warning', 'No se realizaron cambios en el spot.');
     }
 
     /**
@@ -147,33 +156,31 @@ class SpotsController extends Controller
      */
     public function destroy($id)
     {
-        $spot = Spots::findOrFail($id);
-        $count = articles::where('spot_id', $spot->id)->count();
+        try {
+            $spot = Spots::findOrFail($id);
+            $count = articles::where('spot_id', $spot->id)->count();
 
-        if ($count > 0) {
+            if ($count > 0) {
+                return redirect()->route('publicidad.index')->with('error', 'La publicidad no puede ser eliminada');
+            } else {
+                $spot->delete();
+                if ($spot->boton) {
+                    Storage::delete('public/' . $spot->boton);
+                }
 
-            return redirect()->route('publicidad.index')->with('error', ' La publicidad no puede ser eliminada');
-        } else {
-            // Eliminar imagen asociada si existe
-            if ($spot->boton) {
-                Storage::delete('public/' . $spot->boton);
+                return redirect()->route('publicidad.index')->with('success', 'Publicidad eliminada correctamente.');
             }
-
-            // Eliminar el registro del spot
-            $spot->delete();
-
-            return redirect()->route('publicidad.index')->with('success', 'Publicidad eliminada correctamente.');
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('publicidad.index')->with('error', 'La publicidad no pudo ser encontrada.');
+        } catch (\Exception $e) {
+            return redirect()->route('publicidad.index')->with('error', 'No se puede borrar la publicidad.');
         }
     }
 
     public function pstore($id)
     {
         $spotId = $id;
-
-
-
         $spot = spots::find($id);
-
         if (!$spot) {
             return redirect()->route('publicidad.index')->with('error', 'Spot no encontrado.');
         }

@@ -1,3 +1,10 @@
+.general {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .banercabecera {
     display: flex;
     justify-content: center;
@@ -26,6 +33,7 @@
 
 .cinta {
     display: flex;
+    width: 100%;
     background-color: #26282D;
     height: 10vh;
     margin-bottom: 10vh;
@@ -119,6 +127,20 @@
 .gallery>img:nth-child(4) {
     clip-path: polygon(50% 50%, calc(120%*var(--_i, 0)) calc(50%*var(--_i, 0)), calc(100%*var(--_i, 0)) 0, 0 0, 0 100%, calc(100%*var(--_i, 0)) 100%, calc(120%*var(--_i, 0)) calc(100% - 50%*var(--_i, 0)));
     --_x: calc(-1*var(--g))
+}
+
+.clientes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 95%;
+}
+
+.clientes img {
+    padding: 5px;
+    margin: 50px;
+    width: 200px;
+    height: 200px;
 }
 
 @media screen and (max-width: 740px) and ( orientation: portrait) {

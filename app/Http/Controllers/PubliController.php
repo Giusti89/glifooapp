@@ -45,7 +45,7 @@ class PubliController extends Controller
         $publicidad = spots::where('slug', $slug)->first();
         
         if (!$publicidad) {
-            abort(404); 
+            return redirect()->route('error');
         }
     
         if ($publicidad->advertising && $publicidad->advertising->nombre) {
@@ -59,7 +59,7 @@ class PubliController extends Controller
                 $video = videos::where('spot_id', $publicidad->id)->first();
                 $redes = redes::where('spot_id', $publicidad->id)->get();
                 $store = sells::where('spot_id', $publicidad->id)->get();
-                return view('publicidad.tienda', compact('nombreCliente', 'article', 'image', 'video', 'redes', 'logoCliente', 'store'));
+                return view('Glifoo-publicidad.tienda', compact('nombreCliente', 'article', 'image', 'video', 'redes', 'logoCliente', 'store'));
             } elseif ($nombrepublicidad == "publicidad con mapa") {
                 echo ("su publicidad es una publicidad con mapa ");
             } elseif ($nombrepublicidad == "publicidad sin mapa") {

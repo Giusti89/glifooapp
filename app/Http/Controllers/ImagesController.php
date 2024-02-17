@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\images;
 use App\Models\prioritys;
+
 use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\Storage;
 
@@ -15,15 +16,19 @@ class ImagesController extends Controller
      */
     public function index($id)
     {
-        $identificador = $id;
+        $identificador = $id;  
+        
+        
 
-        $prio = prioritys::pluck('nombre', 'id');
-
-        $imagenes = images::with('priority')->where('spot_id', $id)->paginate(2);
+        $prio = prioritys::pluck('nombre', 'id');       
+        $imagenes = images::with('priority')->where('spot_id', $id)->paginate(2);       
 
         $count = $imagenes->total();
 
-        return view('galeria.index', compact('imagenes', 'identificador', 'count', 'prio'));
+        $imagen = images::where('spot_id', $id)->first();
+        $advertisingNombre = $imagen->spot->advertising->nombre;
+
+        return view('galeria.index', compact('imagenes', 'identificador', 'count', 'prio','advertisingNombre'));
     }
 
     /**

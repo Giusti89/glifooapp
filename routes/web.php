@@ -32,13 +32,15 @@ Route::post('/contacto.store', [ContactoController::class, 'store'])->name('cont
 
 Route::controller(PubliController::class)->group(function () {
     Route::get('/publi', 'index')->name('publicidad');
-    Route::get('/publicidad.tienda/{slug}', 'show')->name('publicidad.show');
+    Route::get('/Glifoo-publicidad/{slug}', 'show')->name('publicidad.show');
 });
 
 Route::view('privacidad', 'privacidad')->name('privacidad');
 Route::get('nosotros', [ProfileController::class, 'tarjetas'])->name('nosotros');
 Route::get('servicios', [ServiceController::class, 'mostrar'])->name('servicios');
 Route::get('portfolio', [ServiceController::class, 'avatar'])->name('portfolio');
+
+
 
 // RUTAS PRIVADAS
 Route::get('/dashboard', function () {

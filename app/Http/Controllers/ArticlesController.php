@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\articles;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -66,7 +67,7 @@ class ArticlesController extends Controller
         $articulo->update([
             'titulo' => $request->titulo,
             'contenido' => $request->contenido,          
-            // Actualiza otros campos según sea necesario
+            
         ]);
         return redirect()->route('storepub', ['id' => $articulo->spot_id, 'page' => 1])->with('success', 'Articulo actualizado exitosamente');
     }
@@ -76,8 +77,14 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        $articulo = Articles::findOrFail($id);
-        $articulo->delete();
-        return redirect()->route('storepub', ['id' => $articulo->spot_id, 'page' => 1])->with('error', 'Articulo eliminado correctamente.');
+        try {
+            $articulo = Articles::findOrFail($id);
+            $articulo->delete();
+            return redirect()->route('storepub', ['id' => $articulo->spot_id, 'page' => 1])->with('success', 'Articulo eliminado correctamente.');
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('storepub', ['id' => $articulo->spot_id, 'page' => 1])->with('error', 'El artículo no pudo ser encontrado.');
+        } catch (\Exception $e) {
+            return redirect()->route('storepub', ['id' => $articulo->spot_id, 'page' => 1])->with('error', 'Ocurrió un error al eliminar el artículo.');
+        }
     }
 }

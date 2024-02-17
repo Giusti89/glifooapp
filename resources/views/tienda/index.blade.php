@@ -25,7 +25,7 @@
                             {{ $articulo->nombre }}
                         </td>
                         <td class="filas-tabla">
-                            {{ $articulo->descripcion }}
+                            {{ Str::limit($articulo->descripcion, 70) }}
                         </td>
                         <td class="filas-tabla">
                             {{ $articulo->costo }}

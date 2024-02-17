@@ -76,13 +76,13 @@
                                                 </button>
                                             </a>
                                         @elseif($pu->advertising->nombre == 'publicidad con mapa')
-                                            <a href="">
+                                            <a href="{{ route('storepub', $pu->id) }}">
                                                 <button type="button" class="btn-modificar">
                                                     Publicidad con mapa
                                                 </button>
                                             </a>
                                         @elseif($pu->advertising->nombre == 'publicidad sin mapa')
-                                            <a href="">
+                                            <a href="{{ route('storepub', $pu->id) }}">
                                                 <button type="button" class="btn-modificar">
                                                     Publicidad sin mapa
                                                 </button>

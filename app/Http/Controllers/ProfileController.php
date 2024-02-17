@@ -14,6 +14,7 @@ use App\Models\cargo;
 use App\Models\User;
 use  Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use App\Models\cliente;
 
 class ProfileController extends Controller
 {
@@ -137,6 +138,9 @@ class ProfileController extends Controller
     public function eliminar( $id)
     {        
         $usuario = User::find($id); 
+        if ($usuario->cargo_id==1) {
+            return redirect()->route('dashboard')->with('error', 'No puedes eliminar este usuario es un administrador.');
+        }
         if ($usuario->fotoPerfil && $usuario->fondoPerfil) {
             Storage::delete('public/' . $usuario->fondoPerfil);
             Storage::delete('public/' . $usuario->fotoPerfil);
@@ -165,6 +169,8 @@ class ProfileController extends Controller
     }
     public function tarjetas()
     {
+        $logo = Cliente::all('logo_url');
+
         $coleccion= User::where('name', 'like', 'Glifoo')->select('fotoPerfil as foto', 'fondoPerfil as fondo')->first();
 
         $fotos = User::select('users.id as id', 'users.fotoPerfil as foto', 'users.fondoPerfil as perfil', 'users.name', 'users.email', 'N.nombre as rol', 'S.nombre as servicio', 'C.nombre as cargo')
@@ -173,6 +179,6 @@ class ProfileController extends Controller
             ->join('cargos as C', 'users.cargo_id', '=', 'C.id')
             ->orderBy('users.id', 'asc')
             ->get();
-        return view('nosotros', compact('fotos','coleccion'));
+        return view('nosotros', compact('fotos','coleccion','logo'));
     }
 }

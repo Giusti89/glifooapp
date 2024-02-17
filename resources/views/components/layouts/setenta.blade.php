@@ -4,8 +4,8 @@
         <div class="cardL">
             <div class="frontL" style="background-image: url(/storage/{{ $fondo }})">
                 <div class="area">
-                    {{ $nombre }}<br>
-                    {{ $cargamento }}
+                    {{-- {{ $nombre }}<br>
+                    {{ $cargamento }} --}}
                 </div>
             </div>
             <div class="backL">
