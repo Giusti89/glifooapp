@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\images;
 use App\Models\prioritys;
-
+use App\Models\spots;
 use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\Storage;
 
@@ -16,19 +16,19 @@ class ImagesController extends Controller
      */
     public function index($id)
     {
-        $identificador = $id;  
-        
-        
+        $identificador = $id;
 
-        $prio = prioritys::pluck('nombre', 'id');       
-        $imagenes = images::with('priority')->where('spot_id', $id)->paginate(2);       
+
+
+        $prio = prioritys::pluck('nombre', 'id');
+        $imagenes = images::with('priority')->where('spot_id', $id)->paginate(2);
 
         $count = $imagenes->total();
 
         $imagen = images::where('spot_id', $id)->first();
-        $advertisingNombre = $imagen->spot->advertising->nombre;
-
-        return view('galeria.index', compact('imagenes', 'identificador', 'count', 'prio','advertisingNombre'));
+        // $advertisingNombre = $imagen->spot->advertising->nombre;
+        // ,'advertisingNombre'
+        return view('galeria.index', compact('imagenes', 'identificador', 'count', 'prio', 'count'));
     }
 
     /**
@@ -46,7 +46,7 @@ class ImagesController extends Controller
     {
         $messages = [
             'prioridad.required' => 'Introducir el nombre de la red social.',
-                       
+
             'image.required' => 'El archivo de la imagen debe ser seleccionada.',
             'image.image' => 'El archivo de la imagen debe ser una imagen.',
             'image.mimes' => 'El archivo de la imagen debe ser de tipo: :values.',
@@ -133,6 +133,14 @@ class ImagesController extends Controller
         $imgg->save();
 
         return redirect()->route('galeria.index', $imgg->spot_id)->with('success', 'Imagen actualizada exitosamente.');
+    }
+
+    public function cambio($id)
+    {
+        $spot = spots::find($id);
+        $spot->estado = 1;
+        $spot->update();
+        return redirect()->route('publicidad.index')->with('success', 'Spot sera publicado.');
     }
 
     /**

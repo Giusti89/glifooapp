@@ -43,30 +43,37 @@ class PubliController extends Controller
     public function show($slug)
     {
         $publicidad = spots::where('slug', $slug)->first();
-        
+
         if (!$publicidad) {
             return redirect()->route('error');
         }
-    
+        $nombreCliente = $publicidad->cliente->nombre;
+        $logoCliente = $publicidad->cliente->logo_url;
+        $article = articles::where('spot_id', $publicidad->id)->first();
+        $image = images::where('spot_id', $publicidad->id)->where('prioridad_id', 1)->first();
+        $images = images::where('spot_id', $publicidad->id)->where('prioridad_id', 2)->get();
+        $video = videos::where('spot_id', $publicidad->id)->first();
+        $redes = redes::where('spot_id', $publicidad->id)->get();
         if ($publicidad->advertising && $publicidad->advertising->nombre) {
             $nombrepublicidad = $publicidad->advertising->nombre;
             if ($nombrepublicidad == "Publicidad Store") {
-    
-                $nombreCliente = $publicidad->cliente->nombre;
-                $logoCliente = $publicidad->cliente->logo_url;
-                $article = articles::where('spot_id', $publicidad->id)->first();
-                $image = images::where('spot_id', $publicidad->id)->where('prioridad_id', 1)->first();
-                $video = videos::where('spot_id', $publicidad->id)->first();
-                $redes = redes::where('spot_id', $publicidad->id)->get();
+
                 $store = sells::where('spot_id', $publicidad->id)->get();
+
                 return view('Glifoo-publicidad.tienda', compact('nombreCliente', 'article', 'image', 'video', 'redes', 'logoCliente', 'store'));
+
             } elseif ($nombrepublicidad == "publicidad con mapa") {
-                echo ("su publicidad es una publicidad con mapa ");
+
+                $direccionCliente = $publicidad->cliente->direccion;
+                return view('Glifoo-publicidad.conmap', compact('nombreCliente', 'image','article', 'redes','images', 'video','logoCliente','direccionCliente'));
+
             } elseif ($nombrepublicidad == "publicidad sin mapa") {
-                echo ("su publicidad es una publicidad sin mapa ");
+                
+                return view('Glifoo-publicidad.sinmap', compact('nombreCliente', 'image','article', 'redes','images', 'video','logoCliente'));
             }
         }
     }
+  
 
     /**
      * Show the form for editing the specified resource.

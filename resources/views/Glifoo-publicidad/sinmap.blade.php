@@ -1,0 +1,2 @@
+<x-layouts.psinMaps logoCliente="{{$logoCliente}}" titulo="{{$nombreCliente}}" imagenPrincipal="{{$image->ruta}}" tituloArticulo="{{$article->titulo}}" videoPrincipal="{{$video->ruta}}" textoArticulo="{{$article->contenido}}" :redes="$redes" :images="$images">
+</x-layouts.psinMaps>

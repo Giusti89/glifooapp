@@ -127,6 +127,7 @@ class ClienteController extends Controller
         $cliente->nombre = $request->nombre;
         $cliente->contacto = $request->contacto;
         $cliente->email = $request->email;
+        $cliente->direccion=$request->direccion;
 
         if ($request->hasFile('image')) {
             // Procesar la nueva imagen si se proporciona

@@ -83,34 +83,26 @@
 
 
                 <div class="botones">
-                    @if ($advertisingNombre != 'Publicidad Store')
-                    {{-- {{ route('terminado', $marcador) }} --}}
-                        <form action="" class="formulario" method="post">
-                            @method('PUT')
-                            @csrf
-                            
-                                <button data-modal-toggle="defaultModal" type="submit" class="crear">Publicar</button>
-                            
-                        </form>
+                    @if ($count < 5)
+                        <button data-modal-toggle="defaultModal" type="submit" class="crear">Guardar</button>
                         <a href="{{ route('video.index', $identificador) }}">
                             <button data-modal-toggle="defaultModal" type="button" class="cerrar">Cancelar</button>
                         </a>
                     @else
-                        @if ($count >= 5)
-                            <a href="{{ route('tienda.index', $identificador) }}">
-                                <button data-modal-toggle="defaultModal" type="button"
-                                    class="crear">Siguiente</button>
-                            </a>
-                        @else
-                            <button data-modal-toggle="defaultModal" type="submit" class="crear">Guardar</button>
-                        @endif
-
                         <a href="{{ route('video.index', $identificador) }}">
                             <button data-modal-toggle="defaultModal" type="button" class="cerrar">Cancelar</button>
                         </a>
                     @endif
                 </div>
             </form>
+            @if ($count >= 1)
+                <form action="{{ route('galeria.cambio', $identificador) }}" class="formulario" method="post">
+                    @method('PUT')
+                    @csrf
+                    <button data-modal-toggle="defaultModal" type="submit" class="crear">Publicar</button>
+                </form>
+            @endif
+
         </div>
 
     </div>

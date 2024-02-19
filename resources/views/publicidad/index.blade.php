@@ -45,9 +45,9 @@
 
                                     <td class="filas-tabla">
                                         @if ($pu->estado == 0)
-                                            Por llenar
+                                            Sin publicar
                                         @else
-                                            Realizada
+                                            Publicada
                                         @endif
                                     </td>
 

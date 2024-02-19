@@ -153,7 +153,9 @@ Route::middleware('auth')->group(function () {
         Route::post('/galeria.create', 'store')->name('galeria.store');
         Route::delete('/galeria.delete/{id}', 'destroy')->name('galeria.delete');
         Route::get('/galeria.edit/{id}', 'edit')->name('galeria.edit');
-        Route::put('/galeria.update/{id}', 'update')->name('galeria.update');       
+        Route::put('/galeria.update/{id}', 'update')->name('galeria.update');
+        Route::put('/galeria.cambio/{id}', 'cambio')->name('galeria.cambio');
+               
     });
 
     Route::controller(SellsController::class)->group(function(){
