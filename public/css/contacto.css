@@ -167,3 +167,34 @@
     justify-content: space-around;
     align-items: center;
 }
+
+@media screen and (max-width: 740px) {
+    .banerPrincipal p {
+        font-size: 2em;
+        font-family: 'Sifonn';
+        margin-left: 160px;
+    }
+    .formulario input {
+        width: 350px;
+        padding: 10px;
+        background-color: #32353d;
+        color: aliceblue;
+        align-items: center;
+    }
+    .port {
+        background-color: #26282D;
+        width: 45%;
+        height: 100px;
+        color: #fcd031;
+        font-size: 1em;
+    }
+    .info {
+        background-color: #26282D;
+        width: 45%;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #fcd031;
+        font-size: 1em;
+    }
+}
