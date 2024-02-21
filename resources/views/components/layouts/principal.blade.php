@@ -44,7 +44,7 @@
                 <a class="link-item" href="{{ route('nosotros') }}">Nosotros</a>
                 <a class="link-item" href="{{ route('contactos') }}">Contacto</a>
                 <a class="link-item" href="{{route('publicidad')}}">Publicidad</a>
-                <a class="link-item" href="#">Blog</a>
+                <a class="link-item" href="https://glifoo.org/">Blog</a>
             </div>
         </nav>
         <button id="button-menu" class="button-menu">
