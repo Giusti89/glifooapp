@@ -29,9 +29,9 @@
                         </td>
                         <td class="filas-tabla">
                             {{ $articulo->costo }}
-                        </td>                
+                        </td>
 
-                        <td class="filas-tabla">                          
+                        <td class="filas-tabla">
                             <a href="  {{ route('tienda.edit', $articulo->id) }}">
                                 <button type="button" class="btn-modificar">
                                     MODIFICAR
@@ -41,7 +41,7 @@
 
                         <td class="filas-tabla">
                             <div class="btnsub">
-                               
+
                                 <form action=" {{ route('tienda.delete', $articulo->id) }}" method="post">
                                     @csrf
                                     @method('delete')
@@ -97,8 +97,17 @@
                     <a href="{{ route('galeria.index', $identificador) }}">
                         <button data-modal-toggle="defaultModal" type="button" class="cerrar">Cancelar</button>
                     </a>
+
                 </div>
             </form>
+            @if ($count >= 1)
+                <form action="{{ route('galeria.cambio', $identificador) }}" class="formulario" method="post">
+                    @method('PUT')
+                    @csrf
+                    <button data-modal-toggle="defaultModal" type="submit" class="crear">Publicar</button>
+                </form>
+            @endif
+
         </div>
 
     </div>

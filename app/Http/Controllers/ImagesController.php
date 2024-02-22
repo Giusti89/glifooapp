@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\images;
 use App\Models\prioritys;
 use App\Models\spots;
+use App\Models\videos;
 use Illuminate\Http\Request;
 use  Illuminate\Support\Facades\Storage;
 
@@ -18,17 +19,15 @@ class ImagesController extends Controller
     {
         $identificador = $id;
 
-
-
         $prio = prioritys::pluck('nombre', 'id');
         $imagenes = images::with('priority')->where('spot_id', $id)->paginate(2);
 
         $count = $imagenes->total();
+        $video = videos::where('spot_id', $id)->first();
+        
+        $advertisingNombre = $video->spot->advertising->nombre;
 
-        $imagen = images::where('spot_id', $id)->first();
-        // $advertisingNombre = $imagen->spot->advertising->nombre;
-        // ,'advertisingNombre'
-        return view('galeria.index', compact('imagenes', 'identificador', 'count', 'prio', 'count'));
+        return view('galeria.index', compact('imagenes', 'identificador', 'count', 'prio', 'count', 'advertisingNombre'));
     }
 
     /**

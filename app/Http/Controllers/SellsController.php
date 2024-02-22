@@ -15,7 +15,8 @@ class SellsController extends Controller
     {
         $identificador = $id;
         $tienda = sells::where('spot_id', $id)->paginate(2);
-        return view('tienda.index', compact('tienda', 'identificador'));
+        $count = $tienda->total();
+        return view('tienda.index', compact('tienda', 'identificador','count'));
     }
 
     /**

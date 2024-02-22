@@ -96,11 +96,19 @@
                 </div>
             </form>
             @if ($count >= 1)
-                <form action="{{ route('galeria.cambio', $identificador) }}" class="formulario" method="post">
-                    @method('PUT')
-                    @csrf
-                    <button data-modal-toggle="defaultModal" type="submit" class="crear">Publicar</button>
-                </form>
+                @if ($advertisingNombre == 'Publicidad Store')
+                    <a href="{{ route('tienda.index', $identificador) }}">
+                        <button data-modal-toggle="defaultModal" type="button" class="crear">Siguiente</button>
+                    </a>
+                @else
+                    <form action="{{ route('galeria.cambio', $identificador) }}" class="formulario" method="post">
+                        @method('PUT')
+                        @csrf
+                        <button data-modal-toggle="defaultModal" type="submit" class="crear">Publicar</button>
+                    </form>
+                @endif
+
+
             @endif
 
         </div>
