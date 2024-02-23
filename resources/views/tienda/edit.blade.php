@@ -23,7 +23,7 @@
                 <label for="titulo">Costo del articulo:</label>
                 <input type="number" name="costo" id="costo" required value="{{ $tienda->costo }}">
 
-                <label for="">Imagen del articulo:</label>
+                <label for="">Imagen del artículo:</label>
                 <input id="image" type="file" name="image" accept="image/jpeg/png/webp/svg">
 
                 <div class="botones">
