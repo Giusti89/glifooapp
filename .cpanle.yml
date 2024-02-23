@@ -1,0 +1,15 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home4/glifoo09/public_html/
+    - /bin/rsync -av public/ $DEPLOYPATH/public/
+    - /bin/rsync -av app/ $DEPLOYPATH/app/
+    - /bin/rsync -av bootstrap/ $DEPLOYPATH/bootstrap/
+    - /bin/rsync -av config/ $DEPLOYPATH/config/
+    - /bin/rsync -av database/ $DEPLOYPATH/database/
+    - /bin/rsync -av resources/ $DEPLOYPATH/resources/
+    - /bin/rsync -av routes/ $DEPLOYPATH/routes/
+    - /bin/rsync -av storage/ $DEPLOYPATH/storage/
+    - /bin/rsync -av tests/ $DEPLOYPATH/tests/
+    - /bin/rsync -av vendor/ $DEPLOYPATH/vendor/
+    - /bin/rsync -av .env $DEPLOYPATH/
