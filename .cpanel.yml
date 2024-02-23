@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home4/glifoo09/public_html/
-    - /bin/rsync -a --exclude 'index.php' public/ $DEPLOYPATH/public/
+    - /bin/rsync -a --exclude 'index.php' public/ $DEPLOYPATH
